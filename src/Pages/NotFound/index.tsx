@@ -1,10 +1,12 @@
 import React from 'react'
+import * as S from './styles';
+
 
 const NotFound: React.FC = () => {
     return (
-        <div className='w-full h-screen flex items-center justify-center'>
+        <S.Notfound>
             <p className='text-base'>Page Not Found.</p>
-        </div>
+        </S.Notfound>
     )
 }
 
