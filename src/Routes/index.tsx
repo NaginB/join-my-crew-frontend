@@ -4,6 +4,7 @@ import * as R from "./styles";
 import Home from "../Pages/Home";
 import NotFound from "../Pages/NotFound";
 import Sidebar from "../Components/Sidebar";
+import AuthRoute from "./AuthRoute";
 
 interface RoutesInterface {
   element: React.FC;
@@ -19,6 +20,7 @@ const AppRoutes: React.FC = () => {
       element: Home,
       path: "/dashboard",
       sidebar: true,
+      private: false,
     },
     {
       element: NotFound,
@@ -26,20 +28,34 @@ const AppRoutes: React.FC = () => {
     },
   ]);
 
+  const componentRenderHandler = ({
+    element: Element,
+    sidebar,
+    private: checkAuth,
+  }: RoutesInterface) => {
+    const PathElement = sidebar ? (
+      <R.RoutesWrapper>
+        {sidebar && <Sidebar />}
+        <R.Content>
+          <Element />
+        </R.Content>
+      </R.RoutesWrapper>
+    ) : (
+      <Element />
+    );
+
+    if (checkAuth) return <AuthRoute element={PathElement} />;
+    return PathElement;
+  };
+
   return (
     <Router>
       <Routes>
-        {routes.map(({ element: Element, path, sidebar }) => (
+        {routes.map((route) => (
           <Route
-            element={
-              <R.RoutesWrapper>
-                {sidebar && <Sidebar />}
-                <R.Content>
-                  <Element />
-                </R.Content>
-              </R.RoutesWrapper>
-            }
-            path={path}
+            key={`key-${route.path}`}
+            element={<>{componentRenderHandler(route)}</>}
+            path={route.path}
           />
         ))}
       </Routes>
