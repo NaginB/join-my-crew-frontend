@@ -7,6 +7,8 @@ export const LoginWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: auto;
+  padding: 2rem 0;
 `;
 
 export const LoginContainer = styled.div`
@@ -20,7 +22,7 @@ export const LoginContainer = styled.div`
 `;
 
 export const ColoredLogo = styled.img`
-  width: 250px;
+  width: 150px;
   max-width: 90%;
   margin: auto;
   display: block;
@@ -32,11 +34,10 @@ export const LoginContent = styled.div`
   flex-direction: column;
   align-items: center;
   width: 70%;
-  margin: 4rem auto;
-  margin-bottom: 3rem;
+  margin: 3rem auto;
   h1 {
     color: white;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 100;
   }
 
@@ -52,6 +53,7 @@ export const LoginContent = styled.div`
     color: #4d4d4d;
     position: relative;
     text-align: center;
+    margin-bottom: 2rem;
     span {
       background-color: #000000;
       position: relative;

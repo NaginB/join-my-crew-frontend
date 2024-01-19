@@ -23,7 +23,7 @@ export const CommonButton = styled.div`
   cursor: pointer;
   transition: 0.3s;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   &:hover {
     background: #fff;
     color: #000;
@@ -44,7 +44,6 @@ export const CommonIonButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   position: relative;
-  margin-top: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
