@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import NotFound from "../Pages/NotFound";
 import Sidebar from "../Components/Sidebar";
 import AuthRoute from "./AuthRoute";
+import Login from "../Pages/Login";
 
 interface RoutesInterface {
   element: React.FC;
@@ -16,6 +17,11 @@ interface RoutesInterface {
 
 const AppRoutes: React.FC = () => {
   const [routes] = useState<RoutesInterface[]>([
+    {
+      element: Login,
+      path: "/",
+      sidebar: false,
+    },
     {
       element: Home,
       path: "/dashboard",
