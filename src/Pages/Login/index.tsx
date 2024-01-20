@@ -16,7 +16,7 @@ const Login: React.FC = () => {
               <C.CommonInput placeholder="Email " />
             </div>
             <div>
-              <C.CommonInput placeholder="Email " />
+              <C.CommonInput placeholder="Password " />
             </div>
 
             <C.CommonButton>Continue</C.CommonButton>
@@ -28,6 +28,12 @@ const Login: React.FC = () => {
 
             <div className="or-title">
               <span>Or</span>
+            </div>
+
+            <div className="text-center">
+              <p className="text-[#767676]">Don't have an account ?
+                <Link className="text-white" to={'/signup'}> Sign up</Link>
+              </p>
             </div>
 
             <div>

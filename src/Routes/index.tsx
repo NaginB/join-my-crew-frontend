@@ -6,6 +6,7 @@ import NotFound from "../Pages/NotFound";
 import Sidebar from "../Components/Sidebar";
 import AuthRoute from "./AuthRoute";
 import Login from "../Pages/Login";
+import SignUp from "../Pages/SignUp";
 
 interface RoutesInterface {
   element: React.FC;
@@ -20,6 +21,16 @@ const AppRoutes: React.FC = () => {
     {
       element: Login,
       path: "/",
+      sidebar: false,
+    },
+    {
+      element: SignUp,
+      path: "/signup",
+      sidebar: false,
+    },
+    {
+      element: SignUp,
+      path: "/signup/:role",
       sidebar: false,
     },
     {

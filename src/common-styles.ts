@@ -33,7 +33,7 @@ export const CommonButton = styled.div`
 
 export const CommonIonButton = styled.button`
   background-color: transparent;
-  border: 1px solid #fff;
+  border: 0.6px solid #fff;
   width: 100%;
   padding: 0.5rem 0;
   color: white;
@@ -47,11 +47,6 @@ export const CommonIonButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 400;
   gap: 1rem;
-  img {
-    // position: absolute;
-    // top: 50%;
-    // left: 20%;
-    // transform: translate(-50%, -50%);
-  }
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginWrapper = styled.div`
+export const SignUpWrapper = styled.div`
   width: 100%;
   height: 100vh;
   background: #1d1c1c;
@@ -11,7 +11,7 @@ export const LoginWrapper = styled.div`
   padding: 2rem 0;
 `;
 
-export const LoginContainer = styled.div`
+export const SignUpContainer = styled.div`
   width: 600px;
   max-width: 95%;
   // height: 85vh;
@@ -29,7 +29,7 @@ export const ColoredLogo = styled.img`
   margin-top: 2rem;
 `;
 
-export const LoginContent = styled.div`
+export const SignUpContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
