@@ -7,6 +7,7 @@ import Sidebar from "../Components/Sidebar";
 import AuthRoute from "./AuthRoute";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+import Explore from "../Pages/Explore";
 
 interface RoutesInterface {
   element: React.FC;
@@ -36,6 +37,12 @@ const AppRoutes: React.FC = () => {
     {
       element: Home,
       path: "/dashboard",
+      sidebar: true,
+      private: false,
+    },
+    {
+      element: Explore,
+      path: "/dashboard/explore",
       sidebar: true,
       private: false,
     },

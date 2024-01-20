@@ -8,4 +8,6 @@ export const RoutesWrapper = styled.div`
 
 export const Content = styled.div`
     overflow: auto;
+    width: 100%;
+    background-color: #131313;
 `
