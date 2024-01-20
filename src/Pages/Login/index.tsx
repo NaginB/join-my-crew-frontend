@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./styles";
 import * as C from "../../common-styles";
 import { Link } from "react-router-dom";
+import { TbEyeClosed } from "react-icons/tb";
 
 const Login: React.FC = () => {
   return (
@@ -15,9 +16,10 @@ const Login: React.FC = () => {
             <div>
               <C.CommonInput placeholder="Email " />
             </div>
-            <div>
+            <C.IconInputWrapper>
               <C.CommonInput placeholder="Password " />
-            </div>
+              <TbEyeClosed className="input-icon" size={18} />
+            </C.IconInputWrapper>
 
             <C.CommonButton>Continue</C.CommonButton>
             <div className="text-center">

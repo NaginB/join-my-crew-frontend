@@ -50,3 +50,15 @@ export const CommonIonButton = styled.button`
   font-weight: 400;
   gap: 1rem;
 `;
+
+export const IconInputWrapper = styled.div`
+position: relative;
+.input-icon{
+  position: absolute;
+  top: 50%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  color: #767676;
+}
+`
