@@ -1,9 +1,10 @@
 import React from "react";
 import * as H from "./style";
 import * as C from "../../common-styles";
-import { ExploreIcon } from "../../Icons/Explore";
 import { TbSearch } from "react-icons/tb";
 import Post from "../../Components/Post/Post";
+import Suggesstion from "../../Components/Suggesstion";
+
 const Home: React.FC = () => {
   return (
     <H.HomeWrapper>
@@ -17,12 +18,23 @@ const Home: React.FC = () => {
         <H.FeedWrapper>
           {Array(10)
             .fill("")
-            .map(() => (
-              <Post />
+            .map((_, index) => (
+              <Post key={`post-key-${index}`} />
             ))}
         </H.FeedWrapper>
       </H.Feed>
-      <H.SuggesstionWrapper></H.SuggesstionWrapper>
+      <H.SuggestionWrapper>
+        <H.Header className="flex items-center justify-center">
+          <p className="text-xl text-white">Suggestions For You</p>
+        </H.Header>
+        <H.SuggestedContentWrapper>
+          {Array(1)
+            .fill("")
+            .map((_, index) => (
+              <Suggesstion key={`suggestion-key-${index}`} />
+            ))}
+        </H.SuggestedContentWrapper>
+      </H.SuggestionWrapper>
     </H.HomeWrapper>
   );
 };

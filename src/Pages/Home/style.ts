@@ -3,22 +3,19 @@ import styled from "styled-components";
 export const HomeWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  //   background: lightblue;
   display: flex;
 `;
 
 export const Feed = styled.div`
   width: 100%;
   min-height: 100vh;
-  //   background: lightgreen;
-  flex: 3;
+  flex: 6;
 `;
 
-export const SuggesstionWrapper = styled.div`
+export const SuggestionWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  background: yellow;
-  flex: 1;
+  flex: 2;
 `;
 
 export const Header = styled.div`
@@ -42,6 +39,12 @@ export const Header = styled.div`
 
 export const FeedWrapper = styled.div`
   max-height: calc(100vh - 100px);
-  padding: 1rem;
   overflow: auto;
+  padding: 1rem;
+`;
+
+export const SuggestedContentWrapper = styled.div`
+  max-height: calc(100vh - 100px);
+  overflow: auto;
+  padding: 1rem;
 `;
