@@ -36,13 +36,13 @@ const AppRoutes: React.FC = () => {
     },
     {
       element: Home,
-      path: "/dashboard",
+      path: "/home",
       sidebar: true,
       private: false,
     },
     {
       element: Explore,
-      path: "/dashboard/explore",
+      path: "/explore",
       sidebar: true,
       private: false,
     },

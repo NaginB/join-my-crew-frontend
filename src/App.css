@@ -19,3 +19,28 @@ body, html {
 a {
     text-decoration: none;
 }
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    opacity: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #252525;
+    border-radius: 6px;
+    ;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
