@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import { HomeIcon } from "../../Icons/Home";
+import { HomeIcon } from "../../Assets/Icons/Home";
 import { SidebarItems } from "./interface";
-import { ExploreIcon } from "../../Icons/Explore";
-import { MessagesIcon } from "../../Icons/Messages";
-import { ApetureIcon } from "../../Icons/Apeture";
+import { ExploreIcon } from "../../Assets/Icons/Explore";
+import { MessagesIcon } from "../../Assets/Icons/Messages";
+import { ApetureIcon } from "../../Assets/Icons/Apeture";
+import AppLogo from "../../Assets/Images/logo.svg";
+import UserImage from "../../Assets/Images/user-profile-img.png";
 
 const Sidebar: React.FC = () => {
   const [items] = useState<SidebarItems[]>([
@@ -32,8 +34,8 @@ const Sidebar: React.FC = () => {
 
   return (
     <S.SidebardWrapper>
-      <S.Logo src="/images/logo.svg" />
-      <S.Image src="/images/user_profile_img.png" />
+      <S.Logo src={AppLogo} />
+      <S.Image src={UserImage} />
 
       <hr />
 

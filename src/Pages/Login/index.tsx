@@ -3,12 +3,14 @@ import * as S from "./styles";
 import * as C from "../../common-styles";
 import { Link } from "react-router-dom";
 import { TbEyeClosed } from "react-icons/tb";
+import ColoredLogo from "../../Assets/Images/logo-colored.svg";
+import GoogleIcon from "../../Assets/Images/google-icon.svg";
 
 const Login: React.FC = () => {
   return (
     <S.LoginWrapper>
       <S.LoginContainer>
-        <S.ColoredLogo src="/images/logo-colored.svg" />
+        <S.ColoredLogo src={ColoredLogo} />
         <S.LoginContent>
           <h1 className="font-roboto font-reg">Log in</h1>
 
@@ -33,14 +35,18 @@ const Login: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <p className="text-[#767676]">Don't have an account ?
-                <Link className="text-white" to={'/signup'}> Sign up</Link>
+              <p className="text-[#767676]">
+                Don't have an account ?
+                <Link className="text-white" to={"/signup"}>
+                  {" "}
+                  Sign up
+                </Link>
               </p>
             </div>
 
             <div>
               <C.CommonIonButton>
-                <img alt="fanxo-logo" src="/images/google-icon.svg" />
+                <img alt="fanxo-logo" src={GoogleIcon} />
                 <span>Login With Google</span>
               </C.CommonIonButton>
             </div>

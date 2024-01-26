@@ -1,10 +1,11 @@
 import React from "react";
 import * as S from "./style";
+import UserImage from "../../Assets/Images/user-profile-img.png";
 
 const Suggesstion: React.FC = () => {
   return (
     <S.SuggestionBox>
-      <S.ProfileImage src="/images/user_profile_img.png" />
+      <S.ProfileImage src={UserImage} />
       <S.SugestionDetails>
         <div>
           <p>Ranbir</p>

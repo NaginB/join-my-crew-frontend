@@ -1,15 +1,17 @@
 import React from "react";
 import * as P from "./style";
-import LikeIcon from "../../Icons/Like";
-import CommentIcon from "../../Icons/Comment";
-import RupeeIcon from "../../Icons/RupeeIcon";
+import LikeIcon from "../../Assets/Icons/Like";
+import CommentIcon from "../../Assets/Icons/Comment";
+import RupeeIcon from "../../Assets/Icons/RupeeIcon";
+import PostImge from "../../Assets/Images/post_img.png";
+import UserImage from "../../Assets/Images/user-profile-img.png";
 
 const Post: React.FC = () => {
   return (
     <P.Post>
       <P.Header>
         <div className="flex items-center gap-3">
-          <P.UserImage src="/images/user_profile_img.png" />
+          <P.UserImage src={UserImage} alt="user" />
           <P.UserTitle>Ranbir</P.UserTitle>
         </div>
         <P.Time>16 Hours ago</P.Time>
@@ -21,7 +23,7 @@ const Post: React.FC = () => {
         dolor veritatis laborum.
       </P.Description>
 
-      <P.PostImage src="/images/post_img.png" />
+      <P.PostImage src={PostImge} />
 
       <P.ActionWrapper>
         <LikeIcon />
