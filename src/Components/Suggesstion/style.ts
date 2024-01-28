@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SuggestionImage  from '../../Assets/Images/suggestion-img.png'
 
 export const SuggestionBox = styled.div`
   max-width: 90%;
@@ -7,7 +8,7 @@ export const SuggestionBox = styled.div`
   height: 180px;
   position: relative;
   border-radius: 10px;
-  background: url("/images/suggestion-img.png");
+  background: url("${SuggestionImage}");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

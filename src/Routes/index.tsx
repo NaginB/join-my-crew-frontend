@@ -8,6 +8,7 @@ import AuthRoute from "./AuthRoute";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Explore from "../Pages/Explore";
+import Chat from "../Pages/Chat";
 
 interface RoutesInterface {
   element: React.FC;
@@ -43,6 +44,12 @@ const AppRoutes: React.FC = () => {
     {
       element: Explore,
       path: "/explore",
+      sidebar: true,
+      private: false,
+    },
+    {
+      element: Chat,
+      path: "/messages",
       sidebar: true,
       private: false,
     },

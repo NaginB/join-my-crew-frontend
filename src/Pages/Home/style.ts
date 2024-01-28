@@ -16,6 +16,10 @@ export const SuggestionWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   flex: 2;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 export const Header = styled.div`
