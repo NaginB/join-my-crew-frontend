@@ -15,7 +15,7 @@ export const CommonInput = styled.input`
 
 export const CommonButton = styled.button`
   background-color: #313131;
-  padding: 0.8rem 0;
+  padding: 0.8rem 2rem;
   color: #767676;
   text-align: center;
   border-radius: 2rem;
