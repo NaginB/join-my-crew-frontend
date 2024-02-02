@@ -42,7 +42,7 @@ font-size: 1.1rem;
 `;
 
 export const SubscribeBox = styled.div`
-height: 80px;
+height: 60px;
 width: 100%;
 background: #393939;
 display: flex;
