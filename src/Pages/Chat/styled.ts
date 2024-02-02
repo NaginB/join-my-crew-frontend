@@ -63,15 +63,14 @@ export const MessageHeader = styled.div`
 `;
 
 export const NewMessageButton = styled(CommonButton)`
-padding: 0.5rem 0;
-color: white;
-background: #000000;
-border-radius: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 0.5rem;
-width: 200px;
+    padding: 0.5rem 1rem;
+    color: white;
+    background: #000000;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 `
 
 export const MessageActionWrapper = styled.form`
