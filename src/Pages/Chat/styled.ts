@@ -105,6 +105,6 @@ export const SendButton = styled.button`
     align-items: center;
     justify-content: center;
     .send-icon{
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 `
