@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 export const SidebardWrapper = styled.div`
   width: 250px;
@@ -42,13 +43,13 @@ export const SidebarItems = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const SidebarItem = styled.div`
+export const SidebarItem = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 1.2rem;
   cursor: pointer;
-
+  gap: 0.5rem;
   .item-title {
     font-size: 18px;
     position: relative;

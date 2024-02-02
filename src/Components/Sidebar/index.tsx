@@ -14,21 +14,25 @@ const Sidebar: React.FC = () => {
       id: 1,
       icon: HomeIcon,
       title: "Home",
+      link: '/home'
     },
     {
       id: 2,
       icon: ExploreIcon,
       title: "Explore",
+      link: '/explore'
     },
     {
       id: 3,
       icon: MessagesIcon,
       title: "Messages",
+      link: '/messages'
     },
     {
       id: 4,
       icon: ApetureIcon,
       title: "Gallery",
+      link: '/gallery'
     },
   ]);
 
@@ -41,7 +45,7 @@ const Sidebar: React.FC = () => {
 
       <S.SidebarItems>
         {items.map((item) => (
-          <S.SidebarItem key={item.id}>
+          <S.SidebarItem to={item.link} key={item.id}>
             <item.icon />
             <span className="item-title">{item.title}</span>
           </S.SidebarItem>

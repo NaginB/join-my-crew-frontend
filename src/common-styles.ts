@@ -13,7 +13,7 @@ export const CommonInput = styled.input`
   font-size: 16px;
 `;
 
-export const CommonButton = styled.div`
+export const CommonButton = styled.button`
   background-color: #313131;
   width: 100%;
   padding: 0.8rem 0;

@@ -23,7 +23,7 @@ export const ChatUser = styled.div`
     }
 
     &:hover{
-        background: #393939;
+        background-color: #393939;
     }
 `
 
@@ -37,4 +37,55 @@ export const UserDetail = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+`
+
+export const MessagesWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+`;
+
+export const MessageBox = styled.div``
+
+export const MessageDate = styled.div.attrs(props => ({ className: 'font-roboto' }))`
+    text-align: center;
+    background-color: #353535;
+    color: #9d9d9d;
+    font-weight: 500;
+    border: 5px;
+    padding: .25rem .5rem;
+    width: fit-content;
+    margin: auto;
+    position: sticky;
+    top: 1rem;
+    font-size: 14px;
+    border-radius: 4px;
+`
+
+export const Messages = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+`
+
+export const Message = styled.div<{ $remote: string }>`
+    width: 600px;
+    max-width: 90%;
+    ${props => props.$remote === 'false' && `margin-left: auto;`}
+    padding: 1rem;
+    padding-bottom: 0.4rem;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: ${(props) => props.$remote === 'true' ? '#252525' : '#00988f'};
+`
+
+export const Text = styled.div``
+
+export const Time = styled.div`
+    color: white;
+    font-size: 12px;
+    text-align: right;
+    margin-top: .5rem;
 `
