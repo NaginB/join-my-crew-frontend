@@ -9,6 +9,8 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Explore from "../Pages/Explore";
 import Chat from "../Pages/Chat";
+import TestPage from "../Pages/Test";
+import Account from "../Pages/Account";
 
 interface RoutesInterface {
   element: React.FC;
@@ -50,6 +52,18 @@ const AppRoutes: React.FC = () => {
     {
       element: Chat,
       path: "/messages",
+      sidebar: true,
+      private: false,
+    },
+    {
+      element: TestPage,
+      path: "/test",
+      sidebar: false,
+      private: false,
+    },
+    {
+      element: Account,
+      path: "/account",
       sidebar: true,
       private: false,
     },
