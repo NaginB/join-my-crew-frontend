@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import * as C from "../../common-styles";
 import { Link, useParams } from "react-router-dom";
@@ -8,21 +8,37 @@ import GoogleIcon from "../../Assets/Images/google-icon.svg";
 import { SignUpInterface } from "./interface"; // Assuming SignUpInterface is defined in "./interface"
 import { Formik, Form, FormikHelpers } from "formik";
 import * as validation from '../../Config/validation.config'
+import * as APIPATHS from '../../API/path';
+import APIRequest from "../../API";
+import toast from "react-hot-toast";
 
 const SignUp: React.FC = () => {
   const { role } = useParams<{ role: string }>(); // Specify the type for useParams
-
   const [formData] = useState<SignUpInterface>({
-    email: "",
-    name: "",
-    password: "",
+    email: "naginbanodha@gmail.com",
+    name: "Nagin Banodha",
+    password: "Test@1234",
     role: ""
   });
 
-  const onSignUp = (values: SignUpInterface, actions: FormikHelpers<SignUpInterface>) => {
+  const onSignUp = async (values: SignUpInterface, actions: FormikHelpers<SignUpInterface>) => {
     // Your submission logic goes here
     values.role = role ?? 'user';
-    console.log(values);
+    const promise = APIRequest(APIPATHS.loginpaths, values);
+
+    // creating new user
+    toast.promise(promise, {
+      loading: "Signin you up...",
+      success: (data: any) => {
+        if (data.error)
+          throw new Error(data.error.message);
+        return ''
+      },
+      error: (err) => {
+        return err.message;
+      },
+    })
+
   }
 
   return (
