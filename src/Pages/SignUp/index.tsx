@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./styles";
 import * as C from "../../common-styles";
 import { Link, useParams } from "react-router-dom";
 import { TbEyeClosed } from "react-icons/tb";
 import ColoredLogo from "../../Assets/Images/logo-colored.svg";
 import GoogleIcon from "../../Assets/Images/google-icon.svg";
+import APIRequest from "../../API";
 
 const SignUp: React.FC = () => {
   const { role } = useParams();
+
+  const dataHandler = async () => {
+    try {
+      const response = await APIRequest({ url: '/', method: 'GET' });
+      console.log(response)
+    } catch (error) {
+      console.log('error: ', error)
+    }
+  }
+
+  useEffect(() => {
+    dataHandler()
+  }, [])
   return (
     <S.SignUpWrapper>
       <S.SignUpContainer>
