@@ -80,9 +80,7 @@ export const SidebarItem = styled(Link)`
 
   svg{
     @media screen and (max-width: 1200px) {
-     
         color: black;
-      
     }
 
   }
