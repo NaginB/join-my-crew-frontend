@@ -30,7 +30,8 @@ export const ChatUser = styled.div`
 
 
 export const LastMessage = styled.div`
-   color: 17px;
+   font-size: 18px;
+    color: #ffffff;
 `
 
 export const UserDetail = styled.div`
@@ -71,8 +72,8 @@ export const Messages = styled.div`
 `
 
 export const Message = styled.div<{ $remote: string }>`
-    width: 600px;
-    max-width: 90%;
+    width: fit-content;
+    max-width: 70%;
     ${props => props.$remote === 'false' && `margin-left: auto;`}
     padding: 1rem;
     padding-bottom: 0.4rem;

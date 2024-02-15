@@ -4,12 +4,20 @@ export const HomeWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   display: flex;
+
+  @media screen and (max-width: 1200px) {
+    min-height: unset;
+  }
 `;
 
 export const Feed = styled.div`
   width: 100%;
   min-height: 100vh;
   flex: 6;
+
+  @media screen and (max-width: 1200px) {
+    min-height: unset;
+  }
 `;
 
 export const SuggestionWrapper = styled.div`
@@ -17,7 +25,7 @@ export const SuggestionWrapper = styled.div`
   min-height: 100vh;
   flex: 2;
 
-  @media (max-width: 1100px) {
+  @media screen and (max-width: 1200px) {
     display: none;
   }
 `;
@@ -45,10 +53,18 @@ export const FeedWrapper = styled.div`
   max-height: calc(100vh - 100px);
   overflow: auto;
   padding: 1rem;
+
+  @media screen and (max-width: 1200px) {
+   max-height: calc(100vh - 150px);
+  }
 `;
 
 export const SuggestedContentWrapper = styled.div`
   max-height: calc(100vh - 100px);
   overflow: auto;
   padding: 1rem;
+
+  @media screen and (max-width: 1200px) {
+   max-height: calc(100vh - 150px);
+  }
 `;

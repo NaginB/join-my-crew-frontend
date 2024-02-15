@@ -1,59 +1,121 @@
 import styled from "styled-components";
 import { CommonButton, CommonInput } from '../../common-styles'
 
+interface UserListProp {
+    showUserList: boolean;
+}
+
+interface MessageShaderProp {
+    isVisible: boolean;
+}
+
 export const MessageWrapper = styled.div`
     padding: 2rem;
     padding-bottom: 0;
+
+    @media screen and (max-width: 800px){
+        padding: 1rem;
+    }
 `;
 
-export const MessageContainer = styled.div`
-padding-top: 1rem;
-width: 100%;
-height: calc(100vh - 72px);
-display: flex;
-`
-
-export const UserListWrallper = styled.div`
-width: 320px;
-overflow: hidden;
-height: 100%;
-display: flex;
-flex-direction: column;
-gap: 1rem;
-padding: 1rem 0;
-padding-right: 0.5rem;
-&:hover{
-    overflow: auto;
+export const MessageHeading = styled.h1`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+.menu-icon{
+    display: none;
+    cursor: pointer;
+    @media screen and (max-width: 800px){
+        display: block;
+    }
 }
 `
+
+export const MessageContainer = styled.div`
+    padding-top: 1rem;
+    width: 100%;
+    height: calc(100vh - 72px);
+    display: flex;
+
+    @media screen and (max-width: 1200px) {
+        height: calc(100vh - 122px);
+    }
+`
+
+export const UserListWrallper = styled.div<UserListProp>`
+    width: 320px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+    padding-right: 0.5rem;
+    transition: 0.3s;
+
+    &:hover{
+        overflow: auto;
+    }
+
+    @media screen and (max-width: 800px) {
+        position: fixed;
+        width: 70%;
+        z-index: 10;
+        background-color: #131313;
+        height: 100vh;
+        top: 0px;
+        left: 0;
+        transform: translateX(${({ showUserList }) => showUserList ? '0px' : '-100%'});
+    }
+`
+
+
+export const MessageShader = styled.div<MessageShaderProp>`
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 30%;
+    height: 100vh;
+    background-color: #000;
+    transition: 0.3s;
+    display: none;
+
+    @media screen and (max-width: 800px) {
+        display: block;
+        opacity: ${({ isVisible }) => isVisible ? 0.5 : 0};
+        pointer-events: ${({ isVisible }) => isVisible ? 'all' : 'none'};
+    }
+`;
+
 export const MessageSection = styled.div`
-flex: 8;
-position: relative;
-display:flex;
-flex-direction: column;
+    flex: 8;
+    position: relative;
+    display:flex;
+    flex-direction: column;
 `
 
 export const SubscribeButton = styled.button`
-background: #000000;
-padding: .5rem 1rem;
-color: #ffffff;
-border-radius: 2rem;
-font-size: 1.1rem;
+    background: #000000;
+    padding: .5rem 1rem;
+    color: #ffffff;
+    border-radius: 2rem;
+    font-size: 1.1rem;
 `;
 
 export const SubscribeBox = styled.div`
-height: 60px;
-width: 100%;
-background: #393939;
-display: flex;
-align-items: center;
-justify-content: center;
+    height: 60px;
+    width: 100%;
+    /* background: #393939; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 export const MessagesWrapper = styled.div`
-flex: 1;
-color: white;
-overflow: auto;
+    flex: 1;
+    color: white;
+    overflow: auto;
 `
 
 export const MessageHeader = styled.div`
@@ -78,6 +140,10 @@ export const MessageActionWrapper = styled.form`
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    @media screen and (max-width: 800px){
+       padding: 0;
+    }
 `
 
 export const NewMessage = styled(CommonInput)`

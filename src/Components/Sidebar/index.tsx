@@ -39,7 +39,7 @@ const Sidebar: React.FC = () => {
   return (
     <S.SidebardWrapper>
       <S.Logo src={AppLogo} />
-      <S.Image src={UserImage} />
+      <S.ProfileImage src={UserImage} />
 
       <hr />
 

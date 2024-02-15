@@ -17,17 +17,19 @@ const ProfileCard: React.FC = () => {
           </P.ProfileTitle>
           <BlueTick />
         </P.ProfileTitleWrapper>
-        <P.ProfileEmail className="text-white">ranbir@fanxo</P.ProfileEmail>
-        <div className="flex gap-5 mt-5 items-center">
-          <P.ProfileIconWrapper className="flex">
-            <ImageGallery />
-            <span className="text-white">89</span>
-          </P.ProfileIconWrapper>
-          <P.ProfileIconWrapper className="flex">
-            <Folder />
-            <span className="text-white">89</span>
-          </P.ProfileIconWrapper>
-        </div>
+        <P.ProfileDetailBox>
+          <P.ProfileEmail className="text-white">ranbir@fanxo</P.ProfileEmail>
+          <div className="flex gap-5 mt-5 items-center">
+            <P.ProfileIconWrapper className="flex">
+              <ImageGallery />
+              <span className="text-white">89</span>
+            </P.ProfileIconWrapper>
+            <P.ProfileIconWrapper className="flex">
+              <Folder />
+              <span className="text-white">89</span>
+            </P.ProfileIconWrapper>
+          </div>
+        </P.ProfileDetailBox>
       </P.ProfileDetails>
       <P.SubscribeBtn>
         <Users />

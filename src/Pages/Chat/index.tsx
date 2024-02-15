@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as C from './styled';
 import ChatUser from '../../Components/Chat/ChatUser';
 import { TbPlus } from 'react-icons/tb';
-import { IoIosSend } from "react-icons/io";
+import { IoIosSend, IoMdMenu } from "react-icons/io";
 import Messages from '../../Components/Chat/Messages';
 
 const Chat: React.FC = () => {
+  const [showUserList, setShowUserList] = useState<boolean>(false);
   return (
     <C.MessageWrapper>
+      <C.MessageShader 
+      isVisible={showUserList}
+      onClick={() => setShowUserList(!showUserList)} />
       <C.MessageHeader>
-        <h1 className='text-white font-bold text-3xl'>Messages</h1>
+        <C.MessageHeading className='text-white font-bold text-3xl'>
+          <IoMdMenu
+            onClick={() => setShowUserList(!showUserList)}
+            className='menu-icon' />
+          <span>Messages</span>
+        </C.MessageHeading>
         <C.NewMessageButton>
           <TbPlus />
           <span>New Message</span>
@@ -17,9 +26,9 @@ const Chat: React.FC = () => {
       </C.MessageHeader>
 
       <C.MessageContainer>
-        <C.UserListWrallper>
+        <C.UserListWrallper showUserList={showUserList}>
           {Array(20).fill('').map((_, index) => (
-            <ChatUser key={`user-${index}`}/>
+            <ChatUser key={`user-${index}`} />
           ))}
         </C.UserListWrallper>
 
@@ -35,7 +44,7 @@ const Chat: React.FC = () => {
           <C.MessageActionWrapper>
             <C.NewMessage placeholder='Write a message...' />
             <C.SendButton>
-              <IoIosSend className='send-icon'/>
+              <IoIosSend className='send-icon' />
             </C.SendButton>
           </C.MessageActionWrapper>
         </C.MessageSection>
