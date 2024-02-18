@@ -25,18 +25,23 @@ export const ProfileImg = styled.img`
     border: 1.5px solid #fff;
 
     @media screen and (max-width: 600px){
-        flex: 1;
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+        min-height: 70px;
+        border: none;
     }
 `
 
 export const ProfileDetails = styled.div`
-    @media screen and (max-width: 600px){
-        flex: 1;
-    }
 `
 
 export const ProfileTitle = styled.h3`
     font-size: 1.8rem;
+    @media screen and (max-width: 600px){
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
 `
 
 export const ProfileEmail = styled.p`
@@ -58,10 +63,15 @@ export const SubscribeBtn = styled.button`
     gap: 1rem;
     font-weight: 500;
 
+    svg{
+        font-size: 1.5rem;
+        position: relative;
+        bottom: 2px;
+    }
+
     @media screen and (max-width: 600px){
-        flex-basis: 100%;
-        align-items: center;
-        justify-content: center;
+        background-color: #fff;
+        color: #000;
     }
 
 `
@@ -73,4 +83,7 @@ export const ProfileTitleWrapper = styled.div`
 `
 
 export const ProfileDetailBox = styled.div`
+    @media screen and (max-width: 600px){
+        display: none;
+    }
 `

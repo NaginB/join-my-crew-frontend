@@ -2,7 +2,7 @@ import React from "react";
 import * as P from "./style";
 import ImageGallery from "../../Assets/Icons/ImageIcon";
 import Folder from "../../Assets/Icons/Folter";
-import Users from "../../Assets/Icons/Users";
+import { MdGroupAdd } from "react-icons/md";
 import BlueTick from "../../Assets/Icons/BlueTick";
 import UserImage from "../../Assets/Images/user-profile-img.png";
 
@@ -32,7 +32,7 @@ const ProfileCard: React.FC = () => {
         </P.ProfileDetailBox>
       </P.ProfileDetails>
       <P.SubscribeBtn>
-        <Users />
+        <MdGroupAdd />
         Subscribe
       </P.SubscribeBtn>
     </P.ProfileCard>

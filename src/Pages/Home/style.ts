@@ -35,6 +35,13 @@ export const Header = styled.div`
   height: 100px;
   border-bottom: 1px solid #2a2a2a;
 
+  @media screen and (max-width: 600px) {
+    background-color: white;
+    .header-search {
+      display: none;
+    }
+  }
+
   .header-search {
     input {
       border-bottom: none;
@@ -68,3 +75,12 @@ export const SuggestedContentWrapper = styled.div`
    max-height: calc(100vh - 150px);
   }
 `;
+
+
+export const Logo = styled.img`
+  width: 160px;
+  max-width: 90%;
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
+`

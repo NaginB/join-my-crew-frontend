@@ -9,12 +9,12 @@ const Explore: React.FC = () => {
     return (
         <E.Explore>
             <E.Header>
-                <C.IconInputWrapper>
-                    <C.CommonInput placeholder="Search Creators" />
+                <C.IconInputWrapper className='input-wrapper'>
+                    <C.CommonInput className='explore-input' placeholder="Search Creators" />
                     <TbSearch className="input-icon" size={18} />
                 </C.IconInputWrapper>
 
-                <h1 className='mt-10 mb-5 text-white font-bold text-3xl'>Recommended</h1>
+                <h1 className='mt-10 mb-5 text-white font-bold text-3xl'>Explore</h1>
             </E.Header>
             <E.ProfileWrapper>
                 {Array(10).fill('').map((_, index) => (

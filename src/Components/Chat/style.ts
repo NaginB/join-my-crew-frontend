@@ -27,8 +27,6 @@ export const ChatUser = styled.div`
     }
 `
 
-
-
 export const LastMessage = styled.div`
    font-size: 18px;
     color: #ffffff;
@@ -79,7 +77,8 @@ export const Message = styled.div<{ $remote: string }>`
     padding-bottom: 0.4rem;
     font-size: 15px;
     border-radius: 10px;
-    background-color: ${(props) => props.$remote === 'true' ? '#252525' : '#00988f'};
+    background-color: ${(props) => props.$remote === 'true' ? '#ffffff' : '#2F80ED'};
+    color: ${(props) => props.$remote === 'true' ? '#1B1A57' : '#ffffff'};
 `
 
 export const Text = styled.div``

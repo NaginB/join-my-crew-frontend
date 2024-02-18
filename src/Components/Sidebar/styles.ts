@@ -79,8 +79,18 @@ export const SidebarItem = styled(Link)`
   gap: 0.5rem;
 
   svg{
+    position: relative;
+    bottom: 3px;
     @media screen and (max-width: 1200px) {
         color: black;
+        bottom: 0;
+        width: 40px;
+        height: 40px;
+        padding: 7px;
+        &:hover{
+          background: linear-gradient(90deg, rgba(111, 177, 252, 0.43) 0%, rgba(157, 0, 212, 0.21) 100%);
+          border-radius: 50%;
+        }
     }
 
   }
