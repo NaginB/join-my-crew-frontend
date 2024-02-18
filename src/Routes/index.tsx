@@ -11,6 +11,7 @@ import Explore from "../Pages/Explore";
 import Chat from "../Pages/Chat";
 import TestPage from "../Pages/Test";
 import Account from "../Pages/Account";
+import Landing from "../Pages/Landing";
 
 interface RoutesInterface {
   element: React.FC;
@@ -24,6 +25,11 @@ const AppRoutes: React.FC = () => {
   const [routes] = useState<RoutesInterface[]>([
     {
       element: Login,
+      path: "/login",
+      sidebar: false,
+    },
+    {
+      element: Landing,
       path: "/",
       sidebar: false,
     },

@@ -4,7 +4,7 @@ import * as C from "../../common-styles";
 import { TbSearch } from "react-icons/tb";
 import Post from "../../Components/Post/Post";
 import Suggesstion from "../../Components/Suggesstion";
-import logoLight from '../../Assets/Icons/LogoDark.svg'
+import logoDark from '../../Assets/Images/FanxoDark.svg'
 
 const Home: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
             <C.CommonInput placeholder="Search" />
             <TbSearch color="#B3B3B3" className="input-icon" />
           </C.IconInputWrapper>
-          <H.Logo className="logo-img" src={logoLight} />
+          <H.Logo className="logo-img" src={logoDark} />
         </H.Header>
         <H.FeedWrapper>
           {Array(10)
