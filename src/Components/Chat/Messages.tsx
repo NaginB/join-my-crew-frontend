@@ -29,17 +29,23 @@ const Messages: React.FC = () => {
           <M.MessageBox className='text-white' key={`message-date-${key}`}>
             <M.MessageDate> {getMessageDate(key)}</M.MessageDate>
             <M.Messages>
-              {messages[key].map((_: any, index: number) => (
-                <M.Message
-                  key={`${key}-message-${index}`}
-                  $remote={`${Math.random() < 0.5}`}>
-                  <M.Text>{text.slice(0, Math.floor(Math.random() * text.length) + 1)}</M.Text>
-                  <M.Time>11:11</M.Time>
-                </M.Message>
-              ))}
+              {messages[key].map((_: any, index: number) => {
+                const remote: string = (Math.random() < 0.5).toString();
+                return (
+                  <M.Message
+                    key={`${key}-message-${index}`}
+                    $remote={remote}>
+                    <M.Text>{text.slice(0, Math.floor(Math.random() * text.length) + 1)}</M.Text>
+                    <M.Time
+                      $remote={remote}
+                    >11:11</M.Time>
+                  </M.Message>
+                )
+              })}
             </M.Messages>
           </M.MessageBox>
-        ))
+        )
+        )
       }
     </M.MessagesWrapper>
   )

@@ -83,8 +83,8 @@ export const Message = styled.div<{ $remote: string }>`
 
 export const Text = styled.div``
 
-export const Time = styled.div`
-    color: white;
+export const Time = styled.div<{ $remote: string }>`
+    color: ${(props) => props.$remote === 'true' ? '#A1A1BC' : '#ffffff'};
     font-size: 12px;
     text-align: right;
     margin-top: .5rem;
