@@ -9,9 +9,6 @@ import girlImage2 from '../../Assets/Images/profileGirl2.jpeg'
 import boyImage from '../../Assets/Images/profileBoy.png'
 import postGirlImg from '../../Assets/Images/girlWallpaper.jpg'
 import iPhone11 from '../../Assets/Images/iphone11.png'
-import { Collapse } from 'antd';
-const Panel = Collapse.Panel;
-
 const Landing: React.FC = () => {
 
   const [famousUsers] = useState<FamousUsers[]>([
@@ -46,6 +43,29 @@ const Landing: React.FC = () => {
       imageURL: boyImage
     },
   ])
+
+  const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+  const items = [
+    {
+      key: '1',
+      label: 'This is panel header 1',
+      children: <p>{text}</p>,
+    },
+    {
+      key: '2',
+      label: 'This is panel header 2',
+      children: <p>{text}</p>,
+    },
+    {
+      key: '3',
+      label: 'This is panel header 3',
+      children: <p>{text}</p>,
+    },
+  ];
 
   return (
     <L.Landing>
@@ -104,11 +124,9 @@ const Landing: React.FC = () => {
 
       <L.FaqWrapper>
         <L.SubHeading>FREQUENTLY ASKED <br /> QUESTIONS</L.SubHeading>
-        <Collapse>
-          <Panel className='text-white' header="This is panel header 1" key="1">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut, ipsum eligendi quis doloribus nobis illum reiciendis. Velit, alias iste, in, officia at error reiciendis sequi nobis minima totam laborum pariatur.</p>
-          </Panel>
-        </Collapse>
+        <L.CollaspeWrapper>
+          <L.Collapse expandIconPosition='right' accordion items={items} />
+        </L.CollaspeWrapper>
       </L.FaqWrapper>
     </L.Landing>
   )

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import * as Ant from 'antd'
 
 export const Landing = styled.div`
   background-color: #000;
@@ -54,11 +55,11 @@ export const SectionOne = styled.div`
 `
 
 export const CreatorBtn = styled.button`
-  font-size: 28px;
+  font-size: 20px;
   text-transform: uppercase;
   margin-top: 5rem;
   font-weight: 800;
-  padding: 2rem 4rem;
+  padding: 1rem 2.5rem;
   border-radius: 60px;
   background: linear-gradient(90.08deg, #0D6AC3 1.6%, #0D6AC3 1.61%, rgba(201, 124, 199, 0.990267) 58.35%, rgba(207, 125, 199, 0.99) 58.36%, rgba(249, 143, 18, 0.99) 98.79%, rgba(253, 145, 1, 0.99) 102.66%);
 
@@ -238,4 +239,36 @@ export const StateBoxContainer = styled.div`
 
 export const FaqWrapper = styled.div`
   margin-top: 5rem;
+`
+
+export const CollaspeWrapper = styled.div`
+  width: 1000px;
+  max-width: 90%;
+  margin: auto;
+`
+
+export const Collapse = styled(Ant.Collapse)`
+  border: none!important;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .ant-collapse-header{
+    background-color: #10055466;
+    color: white !important;
+  }
+
+  .ant-collapse-item{
+    border:1px solid #FFFFFF80!important;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .ant-collapse-content-box{
+    background-color: #160f3d;
+    color: white !important;
+  }
+
+  .ant-collapse-content-active{
+    border-top:1px solid #808080!important;
+  }
 `
