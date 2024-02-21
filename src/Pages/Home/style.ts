@@ -37,6 +37,7 @@ export const Header = styled.div`
 
   @media screen and (max-width: 600px) {
     background-color: white;
+    height: 70px;
     .header-search {
       display: none;
     }
@@ -62,7 +63,7 @@ export const FeedWrapper = styled.div`
   padding: 1rem;
 
   @media screen and (max-width: 1200px) {
-   max-height: calc(100vh - 150px);
+   max-height: calc(100vh - 120px);
   }
 `;
 
@@ -72,13 +73,13 @@ export const SuggestedContentWrapper = styled.div`
   padding: 1rem;
 
   @media screen and (max-width: 1200px) {
-   max-height: calc(100vh - 150px);
+   max-height: calc(100vh - 120px);
   }
 `;
 
 
 export const Logo = styled.img`
-  width: 160px;
+  width: 120px;
   max-width: 90%;
   @media screen and (min-width: 600px) {
     display: none;

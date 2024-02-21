@@ -136,33 +136,37 @@ export const NewMessageButton = styled(CommonButton)`
 `
 
 export const MessageActionWrapper = styled.form`
-    padding: .8rem;
+    padding: 0 0.8rem;
     display: flex;
     align-items: center;
     gap: 1rem;
+    background-color: white;
+    border-radius: 5px;
 
     @media screen and (max-width: 800px){
-       padding: 0;
+       /* padding: 0; */
     }
 `
 
 export const NewMessage = styled(CommonInput)`
     flex: 1;
-    background-color: #404040;
+    background-color: transparent;
     height: unset;
-    padding: .8rem 1rem;
-    font-size: 18px;
+    padding: .8rem 0;
+    font-size: 16px;
     border-radius: 7px;
     border: none;
-    color: #B8B8B8;
+    color: #767676;
     font-family: 'Noto Sans', sans-serif;
+    opacity: 1;
     &::placeholder{
-        color: #B8B8B8;
+        color: #767676;
     }
 `;
 
-export const SendButton = styled.button`
-    background-color: #fff;
+export const MessageActionBtn = styled.button<{ bgcolor?: string, color?: string }>`
+    background-color: ${(props) => props.bgcolor ?? '#fff'};
+    color: ${(props) => props.color ?? '#2F80ED'};
     width: 40px;
     height: 40px;
     aspect-ratio: 1/1;
@@ -170,7 +174,13 @@ export const SendButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    .send-icon{
+    .button-icon{
         font-size: 1.6rem;
     }
+`
+
+export const MessageBtnWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: .5rem;
 `

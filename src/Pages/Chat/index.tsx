@@ -2,16 +2,23 @@ import React, { useState } from 'react'
 import * as C from './styled';
 import ChatUser from '../../Components/Chat/ChatUser';
 import { TbPlus } from 'react-icons/tb';
-import { IoIosSend, IoMdMenu } from "react-icons/io";
+import { IoMdMenu } from "react-icons/io";
 import Messages from '../../Components/Chat/Messages';
+import { MdMic } from "react-icons/md";
+import { IoIosAttach } from "react-icons/io";
+import { BsEmojiSmile } from "react-icons/bs";
+import { GoPaperAirplane } from "react-icons/go";
+
 
 const Chat: React.FC = () => {
   const [showUserList, setShowUserList] = useState<boolean>(false);
+  const [newMessage, setNewMessage] = useState<string>('');
+
   return (
     <C.MessageWrapper>
-      <C.MessageShader 
-      isVisible={showUserList}
-      onClick={() => setShowUserList(!showUserList)} />
+      <C.MessageShader
+        isVisible={showUserList}
+        onClick={() => setShowUserList(!showUserList)} />
       <C.MessageHeader>
         <C.MessageHeading className='text-white font-bold text-3xl'>
           <IoMdMenu
@@ -42,10 +49,27 @@ const Chat: React.FC = () => {
           </C.MessagesWrapper>
 
           <C.MessageActionWrapper>
-            <C.NewMessage placeholder='Write a message...' />
-            <C.SendButton>
-              <IoIosSend className='send-icon' />
-            </C.SendButton>
+            <C.MessageActionBtn color='#ffffff' bgcolor='transparent'>
+              <BsEmojiSmile size={26} color='#8d8cac' className='button-icon' />
+            </C.MessageActionBtn>
+            <C.NewMessage placeholder='Write a message...' onChange={(e) => setNewMessage(e.target.value)} />
+            <C.MessageBtnWrapper>
+              {
+                newMessage ? <>
+                  <C.MessageActionBtn color='#ffffff' bgcolor='transparent'>
+                    <GoPaperAirplane size={24} color='#8d8cac' className='button-icon' />
+                  </C.MessageActionBtn>
+                </> :
+                  <>
+                    <C.MessageActionBtn color='#ffffff' bgcolor='transparent'>
+                      <IoIosAttach size={30} color='#8d8cac' className='button-icon' />
+                    </C.MessageActionBtn>
+                    <C.MessageActionBtn color='#ffffff' bgcolor='#2F80ED'>
+                      <MdMic className='button-icon' />
+                    </C.MessageActionBtn>
+                  </>
+              }
+            </C.MessageBtnWrapper>
           </C.MessageActionWrapper>
         </C.MessageSection>
 
