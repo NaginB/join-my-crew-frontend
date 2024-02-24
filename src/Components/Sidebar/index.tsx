@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import { TiHome } from "react-icons/ti";
-import { SidebarItems } from "./interface";
+import { SidebarItems, UserMenu } from "./interface";
 import { IoSearch } from "react-icons/io5";
 import { PiChatTeardropTextFill } from "react-icons/pi";
 import { FaRegCircleUser } from "react-icons/fa6";
 import AppLogo from "../../Assets/Images/logo.svg";
 import UserImage from "../../Assets/Images/user-profile-img.png";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+
   const [items] = useState<SidebarItems[]>([
     {
       id: 1,
@@ -31,21 +34,59 @@ const Sidebar: React.FC = () => {
     {
       id: 4,
       icon: <FaRegCircleUser size={30} />,
-      title: "Gallery",
-      link: '/gallery'
+      title: "User",
+      link: '/gallery',
+      onClick: () => {
+        setIsMenuOpen(true);
+      }
     },
   ]);
+
+  const [userMenu] = useState<UserMenu[]>([
+    {
+      title: 'Contact Support',
+    },
+    {
+      title: 'Edit Profile',
+    },
+    {
+      title: 'Change Password',
+    },
+    {
+      title: 'Payment & Billing',
+    },
+    {
+      title: 'Subscriptions',
+    },
+    {
+      title: 'Sign Out',
+    },
+  ])
+
+  const { pathname } = useLocation()
 
   return (
     <S.SidebardWrapper>
       <S.Logo src={AppLogo} />
       <S.ProfileImage src={UserImage} />
-
       <hr />
-
+      <S.UserMenuContainer open={isMenuOpen ? 'true' : 'false'}>
+        <S.MenuSheild onClick={() => { setIsMenuOpen(false) }} className="menu-sheild"></S.MenuSheild>
+        <S.UserMenu className="user-menu">
+          {userMenu.map(user => (
+            <S.UserMenuItem>
+              <Link to={''} className="font-roboto-condense">{user.title}</Link>
+            </S.UserMenuItem>
+          ))}
+        </S.UserMenu>
+      </S.UserMenuContainer>
       <S.SidebarItems>
         {items.map((item) => (
-          <S.SidebarItem to={item.link} key={item.id}>
+          <S.SidebarItem onClick={(e) => {
+            if (!item.onClick) return e;
+            e.preventDefault();
+            item.onClick();
+          }} active={`${pathname === item.link}`} to={item.link} key={item.id}>
             {item.icon}
             <span className="item-title">{item.title}</span>
           </S.SidebarItem>

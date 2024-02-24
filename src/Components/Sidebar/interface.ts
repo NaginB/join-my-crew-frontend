@@ -5,4 +5,9 @@ export interface SidebarItems {
   icon: React.ReactNode;
   title: string;
   link: string;
+  onClick?: () => void;
+}
+
+export interface UserMenu{
+  title:string;
 }

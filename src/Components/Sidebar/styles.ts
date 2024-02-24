@@ -70,7 +70,7 @@ export const SidebarItems = styled.div`
   }
 `;
 
-export const SidebarItem = styled(Link)`
+export const SidebarItem = styled(Link) <{ active: string }>`
   display: flex;
   align-items: center;
   justify-content: start;
@@ -87,9 +87,13 @@ export const SidebarItem = styled(Link)`
         width: 40px;
         height: 40px;
         padding: 7px;
+        border-radius: 50%;
+       ${({ active }) => active === 'true' ? `
+        background: linear-gradient(90deg, rgba(111, 177, 252, 0.43) 0%, rgba(157, 0, 212, 0.21) 100%);
+       ` : ''}
+
         &:hover{
           background: linear-gradient(90deg, rgba(111, 177, 252, 0.43) 0%, rgba(157, 0, 212, 0.21) 100%);
-          border-radius: 50%;
         }
     }
 
@@ -103,3 +107,58 @@ export const SidebarItem = styled(Link)`
     }
   }
 `;
+
+
+export const UserMenuContainer = styled.div<{ open: string }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+
+  ${({ open }) => open === 'true' ? `
+    .menu-sheild{
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .user-menu{
+      transform: translateY(0);
+    }
+  ` : ``
+  }
+`;
+
+export const MenuSheild = styled.div`
+  background-color: #ffffff61;
+  flex: 1;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(5px);
+  transition: 0.3s;
+`;
+
+export const UserMenu = styled.div`
+  background-color: black;
+  transform: translateY(25rem);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: 0.3s;
+`;
+
+export const UserMenuItem = styled.div`
+  color: white;
+  font-size: 1.2rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid #FFFFFF3D;
+  &:last-child{
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+`
