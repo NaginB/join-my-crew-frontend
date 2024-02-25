@@ -42,7 +42,7 @@ const PostSlider = ({ locked = false }: Props) => {
     <P.LockedPostContainer>
       <P.LockedPostImg className='locked-img' src={SliderImg3} />
       <P.UnlockPost>
-        <FiUnlock size={40} color='white'/>
+        <FiUnlock size={36} color='white'/>
         <P.UnlockPostBtn className='font-roboto'>Unlock Post</P.UnlockPostBtn>
       </P.UnlockPost>
     </P.LockedPostContainer>
