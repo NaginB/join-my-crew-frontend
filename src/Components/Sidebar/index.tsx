@@ -10,7 +10,7 @@ import UserImage from "../../Assets/Images/user-profile-img.png";
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const [items] = useState<SidebarItems[]>([
     {
@@ -70,11 +70,11 @@ const Sidebar: React.FC = () => {
       <S.Logo src={AppLogo} />
       <S.ProfileImage src={UserImage} />
       <hr />
-      <S.UserMenuContainer open={isMenuOpen ? 'true' : 'false'}>
+      <S.UserMenuContainer $open={isMenuOpen}>
         <S.MenuSheild onClick={() => { setIsMenuOpen(false) }} className="menu-sheild"></S.MenuSheild>
         <S.UserMenu className="user-menu">
-          {userMenu.map(user => (
-            <S.UserMenuItem>
+          {userMenu.map((user, i) => (
+            <S.UserMenuItem key={`user-menu-${i}`}>
               <Link to={''} className="font-roboto-condense">{user.title}</Link>
             </S.UserMenuItem>
           ))}

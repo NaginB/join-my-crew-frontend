@@ -109,7 +109,7 @@ export const SidebarItem = styled(Link) <{ active: string }>`
 `;
 
 
-export const UserMenuContainer = styled.div<{ open: string }>`
+export const UserMenuContainer = styled.div<{ $open: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -120,7 +120,7 @@ export const UserMenuContainer = styled.div<{ open: string }>`
   flex-direction: column;
   pointer-events: none;
 
-  ${({ open }) => open === 'true' ? `
+  ${({ $open }) => $open === true ? `
     .menu-sheild{
       opacity: 1;
       pointer-events: all;

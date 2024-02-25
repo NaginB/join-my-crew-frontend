@@ -12,6 +12,7 @@ import Chat from "../Pages/Chat";
 import TestPage from "../Pages/Test";
 import Account from "../Pages/Account";
 import Landing from "../Pages/Landing";
+import ViewProfile from "../Pages/Profile/ViewProfile";
 
 interface RoutesInterface {
   element: React.FC;
@@ -70,6 +71,12 @@ const AppRoutes: React.FC = () => {
     {
       element: Account,
       path: "/account",
+      sidebar: true,
+      private: false,
+    },
+    {
+      element: ViewProfile,
+      path: "/profile/:id",
       sidebar: true,
       private: false,
     },

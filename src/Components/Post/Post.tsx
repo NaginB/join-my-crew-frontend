@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import * as P from "./style";
 import PostHeader from "./PostHeader";
 import PostSlider from "./PostSlider";
 import PostFooter from "./PostFooter";
 import PostFame from "./PostFame";
+import { InterfaceType } from "@nestjs/graphql";
 
-const Post: React.FC = () => {
+interface Props {
+  locked?: boolean
+}
+
+const Post: React.FC<Props> = ({ locked = false }: Props) => {
   return (
-    <P.Post>
+    <P.Post $locked={locked}>
       <PostHeader />
-      <PostSlider />
-      <PostFooter />
-     <PostFame/>
+      <PostSlider locked={locked} />
+      {!locked && <PostFooter />}
+      {!locked && <PostFame />}
     </P.Post>
   );
 };

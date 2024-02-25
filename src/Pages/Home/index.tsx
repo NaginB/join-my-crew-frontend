@@ -21,7 +21,7 @@ const Home: React.FC = () => {
           {Array(10)
             .fill("")
             .map((_, index) => (
-              <Post key={`post-key-${index}`} />
+              <Post  key={`post-key-${index}`} />
             ))}
         </H.FeedWrapper>
       </H.Feed>

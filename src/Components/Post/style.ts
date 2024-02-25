@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SlickSlider from 'react-slick';
 
-export const Post = styled.div`
+export const Post = styled.div<{ $locked: boolean }>`
   width: 600px;
   max-width: 100%;
   margin: auto;
@@ -140,4 +140,41 @@ export const LikedByText = styled.p`
     font-weight: 400;
     cursor: pointer;
   }
+`
+export const LockedPostContainer = styled.div`
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+`
+
+export const LockedPostImg = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+`
+
+export const UnlockPost = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+`
+export const UnlockPostBtn = styled.button`
+  background-color: rgba(0, 0, 0, .56);
+  padding: .4rem 1.2rem;
+  color: white;
+  border-radius: 50px;
+  font-weight: 400;
 `
