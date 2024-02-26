@@ -7,39 +7,42 @@ import ColoredLogo from "../../Assets/Images/logo-colored.svg";
 import GoogleIcon from "../../Assets/Images/google-icon.svg";
 import { SignUpInterface } from "./interface"; // Assuming SignUpInterface is defined in "./interface"
 import { Formik, Form, FormikHelpers } from "formik";
-import * as validation from '../../Config/validation.config'
-import * as APIPATHS from '../../API/path';
+import * as validation from "../../Config/validation.config";
+import * as APIPATHS from "../../API/path";
 import APIRequest from "../../API";
 import toast from "react-hot-toast";
 
 const SignUp: React.FC = () => {
   const { role } = useParams<{ role: string }>(); // Specify the type for useParams
   const [formData] = useState<SignUpInterface>({
-    email: "naginbanodha@gmail.com",
-    name: "Nagin Banodha",
-    password: "Test@1234",
-    role: ""
+    email: "",
+    fullname: "",
+    password: "",
+    role: "",
   });
 
-  const onSignUp = async (values: SignUpInterface, actions: FormikHelpers<SignUpInterface>) => {
+  const onSignUp = async (
+    values: SignUpInterface,
+    actions: FormikHelpers<SignUpInterface>
+  ) => {
     // Your submission logic goes here
-    values.role = role ?? 'user';
+    values.role = role
+      ? process.env.REACT_APP_CREATOR_ROLE_ID
+      : process.env.REACT_APP_USER_ROLE_ID;
     const promise = APIRequest(APIPATHS.loginpaths, values);
 
     // creating new user
     toast.promise(promise, {
       loading: "Signin you up...",
       success: (data: any) => {
-        if (data.error)
-          throw new Error(data.error.message);
-        return ''
+        if (data.error) throw new Error(data.error.message);
+        return "";
       },
       error: (err) => {
         return err.message;
       },
-    })
-
-  }
+    });
+  };
 
   return (
     <S.SignUpWrapper>
@@ -62,19 +65,22 @@ const SignUp: React.FC = () => {
               handleChange,
               handleBlur,
               isSubmitting,
-              resetForm
+              resetForm,
             }) => (
               <Form>
+                {isSubmitting}
                 <div className="login-form">
                   <div>
                     <C.CommonInput
                       placeholder="Full name"
-                      name="name"
-                      value={values.name}
+                      name="fullname"
+                      value={values.fullname}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    <p className="text-white mt-0.5">{errors.name && touched.name && errors.name}</p>
+                    <p className="text-white mt-0.5">
+                      {errors.fullname && touched.fullname && errors.fullname}
+                    </p>
                   </div>
                   <div>
                     <C.CommonInput
@@ -84,7 +90,9 @@ const SignUp: React.FC = () => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    <p className="text-white mt-0.5">{errors.email && touched.email && errors.email}</p>
+                    <p className="text-white mt-0.5">
+                      {errors.email && touched.email && errors.email}
+                    </p>
                   </div>
                   <div>
                     <C.IconInputWrapper>
@@ -98,7 +106,9 @@ const SignUp: React.FC = () => {
                       />
                       <TbEyeClosed className="input-icon" size={18} />
                     </C.IconInputWrapper>
-                    <p className="text-white mt-0.5">{errors.password && touched.password && errors.password}</p>
+                    <p className="text-white mt-0.5">
+                      {errors.password && touched.password && errors.password}
+                    </p>
                   </div>
 
                   <C.CommonButton type="submit" disabled={isSubmitting}>
@@ -106,7 +116,11 @@ const SignUp: React.FC = () => {
                   </C.CommonButton>
 
                   {role && (
-                    <Link to={"/signup"} onClick={() => resetForm()} className="text-[#767676] text-center">
+                    <Link
+                      to={"/signup"}
+                      onClick={() => resetForm()}
+                      className="text-[#767676] text-center"
+                    >
                       Back to Sign up
                     </Link>
                   )}
@@ -116,7 +130,11 @@ const SignUp: React.FC = () => {
                   </p>
 
                   {role !== "creator" && (
-                    <Link onClick={() => resetForm()} className="text-center text-white" to="/signup/creator">
+                    <Link
+                      onClick={() => resetForm()}
+                      className="text-center text-white"
+                      to="/signup/creator"
+                    >
                       Sign up as creator
                     </Link>
                   )}

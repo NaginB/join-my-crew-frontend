@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 
  // Define Yup schema for validation
 export const signUpValidation = Yup.object().shape({
-  name: Yup.string()
+  fullname: Yup.string()
     .required("Please enter your full name"),
   email: Yup.string()
     .email("Invalid email")

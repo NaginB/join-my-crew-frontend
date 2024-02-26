@@ -1,6 +1,6 @@
-export interface SignUpInterface{
-  name: string,
-  email: string,
-  password: string,
-  role: string
+export interface SignUpInterface {
+  fullname: string;
+  email: string;
+  password: string;
+  role?: string;
 }
