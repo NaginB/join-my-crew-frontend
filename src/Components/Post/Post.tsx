@@ -4,7 +4,6 @@ import PostHeader from "./PostHeader";
 import PostSlider from "./PostSlider";
 import PostFooter from "./PostFooter";
 import PostFame from "./PostFame";
-import { InterfaceType } from "@nestjs/graphql";
 
 interface Props {
   locked?: boolean
