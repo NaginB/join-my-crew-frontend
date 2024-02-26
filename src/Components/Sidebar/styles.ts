@@ -58,7 +58,7 @@ export const SidebarItems = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
-
+  z-index: 9999;
   @media screen and (max-width: 1200px) {
     width: 100%;
     height: 50px;
