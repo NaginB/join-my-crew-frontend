@@ -70,8 +70,10 @@ const Landing: React.FC = () => {
   return (
     <L.Landing>
       <L.Header>
-        <PiStarOfDavid color='#ffffff' size={60} />
-        <L.Logo src={LogoLight} />
+        <div className='flex items-center gap-3'>
+          <PiStarOfDavid color='#ffffff' size={60} />
+          <L.Logo src={LogoLight} />
+        </div>
         <div className='flex items-center gap-4'>
           <L.Login className='font-noto' to={'/login'}>Log in</L.Login>
           <L.SignUp className='font-noto' to={'/signup'}>Get Started</L.SignUp>
