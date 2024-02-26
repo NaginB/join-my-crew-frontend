@@ -67,6 +67,9 @@ export const SidebarItems = styled.div`
     justify-content: space-around;
     margin-bottom: 0;
     background: linear-gradient(90deg, #C1F1FF 0%, #C6CAFD 49.41%, #ECB8FF 100%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 `;
 
