@@ -117,11 +117,10 @@ export const UserMenuContainer = styled.div<{ $open: boolean }>`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  z-index: 10;
+  height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
-  pointer-events: none;
+  z-index: 10;
 
   ${({ $open }) => $open === true ? `
     .menu-sheild{

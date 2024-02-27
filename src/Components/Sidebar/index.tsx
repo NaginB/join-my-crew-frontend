@@ -71,10 +71,10 @@ const Sidebar: React.FC = () => {
       <S.ProfileImage src={UserImage} />
       <hr />
       <S.UserMenuContainer $open={isMenuOpen}>
-        <S.MenuSheild onClick={() => { setIsMenuOpen(false) }} className="menu-sheild"></S.MenuSheild>
+        <S.MenuSheild onClick={() => setIsMenuOpen(false)} className="menu-sheild"></S.MenuSheild>
         <S.UserMenu className="user-menu">
           {userMenu.map((user, i) => (
-            <S.UserMenuItem key={`user-menu-${i}`}>
+            <S.UserMenuItem onClick={() => console.log(user)} key={`user-menu-${i}`}>
               <Link to={''} className="font-roboto-condense">{user.title}</Link>
             </S.UserMenuItem>
           ))}
@@ -92,7 +92,7 @@ const Sidebar: React.FC = () => {
           </S.SidebarItem>
         ))}
       </S.SidebarItems>
-    </S.SidebardWrapper>
+    </S.SidebardWrapper >
   );
 };
 
