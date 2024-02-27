@@ -10,7 +10,7 @@ import UserImage from "../../Assets/Images/user-profile-img.png";
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
 
   const [items] = useState<SidebarItems[]>([
     {
@@ -35,9 +35,9 @@ const Sidebar: React.FC = () => {
       id: 4,
       icon: <FaRegCircleUser size={30} />,
       title: "User",
-      link: '/gallery',
+      link: '',
       onClick: () => {
-        setIsMenuOpen(true);
+        setIsMenuOpen((prev) => !prev);
       }
     },
   ]);
