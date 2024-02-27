@@ -52,7 +52,9 @@ const Chat: React.FC = () => {
             <C.MessageActionBtn color='#ffffff' bgcolor='transparent'>
               <BsEmojiSmile size={26} color='#8d8cac' className='button-icon' />
             </C.MessageActionBtn>
-            <C.NewMessage placeholder='Write a message...' onChange={(e) => setNewMessage(e.target.value)} />
+            <C.NewMessage placeholder='Write a message...' 
+            //onChange={(e) => setNewMessage(e.target.value)} 
+            />
             <C.MessageBtnWrapper>
               {
                 newMessage ? <>
