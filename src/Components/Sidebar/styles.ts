@@ -121,8 +121,10 @@ export const UserMenuContainer = styled.div<{ $open: boolean }>`
   display: flex;
   flex-direction: column;
   z-index: 100;
+  pointer-events: none;
 
   ${({ $open }) => $open === true ? `
+    pointer-events: all;
     .menu-sheild{
       opacity: 1;
       pointer-events: all;
