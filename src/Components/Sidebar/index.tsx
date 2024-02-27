@@ -10,7 +10,7 @@ import UserImage from "../../Assets/Images/user-profile-img.png";
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const [items] = useState<SidebarItems[]>([
     {

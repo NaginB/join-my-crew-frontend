@@ -58,7 +58,7 @@ export const SidebarItems = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
-  z-index: 9999;
+  z-index: 500;
   @media screen and (max-width: 1200px) {
     width: 100%;
     height: 50px;
@@ -77,9 +77,8 @@ export const SidebarItem = styled(Link) <{ active: string }>`
   display: flex;
   align-items: center;
   justify-content: start;
-  gap: 1.2rem;
+  gap: 1rem;
   cursor: pointer;
-  gap: 0.5rem;
 
   svg{
     position: relative;
@@ -117,11 +116,16 @@ export const UserMenuContainer = styled.div<{ $open: boolean }>`
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100% - 50px);
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  z-index: 500;
   pointer-events: none;
+
+  @media screen and (min-width: 1200px) {
+    z-index: 600;
+    height: 100%;
+  }
 
   ${({ $open }) => $open === true ? `
     pointer-events: all;
@@ -148,8 +152,9 @@ export const MenuSheild = styled.div`
 
 export const UserMenu = styled.div`
   background-color: black;
-  transform: translateY(25rem);
+  transform: translateY(30rem);
   padding: 2rem 1rem;
+  z-index: 500;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -160,6 +165,8 @@ export const UserMenuItem = styled.div`
   color: white;
   font-size: 1.2rem;
   padding-bottom: .5rem;
+  z-index: 500;
+  position: relative;
   border-bottom: 1px solid #FFFFFF3D;
   &:last-child{
     border-bottom: none;
