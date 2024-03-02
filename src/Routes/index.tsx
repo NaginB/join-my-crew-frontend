@@ -13,6 +13,8 @@ import TestPage from "../Pages/Test";
 import Account from "../Pages/Account";
 import Landing from "../Pages/Landing";
 import ViewProfile from "../Pages/Profile/ViewProfile";
+import CreatorDetails from "../Pages/CreatorDetails";
+import Thankyou from "../Pages/Thankyou";
 
 interface RoutesInterface {
   element: React.FC;
@@ -78,6 +80,18 @@ const AppRoutes: React.FC = () => {
       element: ViewProfile,
       path: "/profile/:id",
       sidebar: true,
+      private: false,
+    },
+    {
+      element: CreatorDetails,
+      path: "/creator-details",
+      sidebar: false,
+      private: false,
+    },
+    {
+      element: Thankyou,
+      path: "/thankyou-for-applying",
+      sidebar: false,
       private: false,
     },
     {

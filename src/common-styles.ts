@@ -61,3 +61,16 @@ position: relative;
   color: #767676;
 }
 `
+
+export const ColoredBtn = styled.button`
+  z-index: 5;
+  border: none;
+  /* background: linear-gradient(90deg, #C1EFFE 0%, #D5C2FD 51.5%, #E9B9FE 100%); */
+
+  background: linear-gradient(90.08deg, #0D6AC3 1.6%, rgba(200, 122, 227, 0.99) 55.89%, rgba(253, 145, 1, 0.99) 102.66%);
+
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  width: unset;
+  box-shadow: 0px 0px 7px 2px #00000040;
+`
