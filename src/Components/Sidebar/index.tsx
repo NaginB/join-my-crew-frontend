@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import { TiHome } from "react-icons/ti";
-import { SidebarItems, UserMenu } from "./interface";
+import * as interFace from "../../Config/interface.config";
 import { IoSearch } from "react-icons/io5";
 import { PiChatTeardropTextFill } from "react-icons/pi";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -12,7 +12,7 @@ import { Link, useLocation } from "react-router-dom";
 const Sidebar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-  const [items] = useState<SidebarItems[]>([
+  const [items] = useState<interFace.SidebarItems[]>([
     {
       id: 1,
       icon: <TiHome size={30} />,
@@ -42,7 +42,7 @@ const Sidebar: React.FC = () => {
     },
   ]);
 
-  const [userMenu] = useState<UserMenu[]>([
+  const [userMenu] = useState<interFace.UserMenu[]>([
     {
       title: 'Contact Support',
     },

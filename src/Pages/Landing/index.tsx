@@ -3,15 +3,16 @@ import * as L from './style';
 import { PiStarOfDavid } from "react-icons/pi";
 import LogoLight from '../../Assets/Images/FanxoLight.svg'
 import Card from './Card';
-import { FamousUsers } from './interface';
+
 import girlImage from '../../Assets/Images/profileGirl.jpeg'
 import girlImage2 from '../../Assets/Images/profileGirl2.jpeg'
 import boyImage from '../../Assets/Images/profileBoy.png'
 import postGirlImg from '../../Assets/Images/girlWallpaper.jpg'
 import iPhone11 from '../../Assets/Images/iphone11.png'
+import * as interFace from '../../Config/interface.config';
 const Landing: React.FC = () => {
 
-  const [famousUsers] = useState<FamousUsers[]>([
+  const [famousUsers] = useState<interFace.FamousUsers[]>([
     {
       id: 1,
       name: 'ANNA SHUMATE',

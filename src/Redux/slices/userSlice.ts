@@ -1,27 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import * as interFace from '../../Config/interface.config';
 
-interface CounterState {
-  value: number
-}
 
-const initialState: CounterState = { value: 0 }
+const initialState: interFace.UserDetails = {}
 
-const counterSlice = createSlice({
-  name: 'counter',
+const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
-    increment(state) {
-      state.value++
-    },
-    decrement(state) {
-      state.value--
-    },
-    incrementByAmount(state, action: PayloadAction<number>) {
-      state.value += action.payload
-    },
+    updateUser(state, { payload }: PayloadAction<interFace.UserDetails>) {
+      Object.assign(state, payload);
+    }
   },
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
-export default counterSlice.reducer
+export const { updateUser } = userSlice.actions
+export default userSlice.reducer

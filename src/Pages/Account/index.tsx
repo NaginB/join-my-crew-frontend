@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import * as A from './styled';
 import { FaAngleRight } from "react-icons/fa6";
-import { LinkInterface } from './interface';
+import * as interFace from '../../Config/interface.config';
+
 
 
 const Account: React.FC = () => {
 
-  const [links] = useState<LinkInterface[]>([
+  const [links] = useState<interFace.LinkInterface[]>([
     {
       title: 'Contact and Support',
       url: '/'

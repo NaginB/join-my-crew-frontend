@@ -1,48 +1,55 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import * as C from "../../common-styles";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { TbEyeClosed } from "react-icons/tb"; // Assuming this is the correct import for the icon
 import ColoredLogo from "../../Assets/Images/logo-colored.svg";
 import GoogleIcon from "../../Assets/Images/google-icon.svg";
-import { SignUpInterface } from "./interface"; // Assuming SignUpInterface is defined in "./interface"
-import { Formik, Form, FormikHelpers } from "formik";
+import { Formik, Form } from "formik";
 import * as validation from "../../Config/validation.config";
 import * as APIPATHS from "../../API/path";
 import APIRequest from "../../API";
 import toast from "react-hot-toast";
+import { AiOutlineEye } from "react-icons/ai";
+import * as interFace from "../../Config/interface.config";
+
 
 const SignUp: React.FC = () => {
   const { role } = useParams<{ role: string }>(); // Specify the type for useParams
-  const [formData] = useState<SignUpInterface>({
+  const navigate = useNavigate()
+  const [formData] = useState<interFace.SignUpInterface>({
     email: "",
     fullname: "",
     password: "",
     role: "",
   });
 
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const onSignUp = async (
-    values: SignUpInterface,
-    actions: FormikHelpers<SignUpInterface>
+    values: interFace.SignUpInterface
   ) => {
     // Your submission logic goes here
     values.role = role
       ? process.env.REACT_APP_CREATOR_ROLE_ID
       : process.env.REACT_APP_USER_ROLE_ID;
-    const promise = APIRequest(APIPATHS.loginpaths, values);
+    const promise = APIRequest(APIPATHS.register, values);
 
     // creating new user
     toast.promise(promise, {
       loading: "Signin you up...",
       success: (data: any) => {
         if (data.error) throw new Error(data.error.message);
-        return "";
+        navigate('/dashboard');
+        return "Account created successfully.";
       },
       error: (err) => {
         return err.message;
       },
     });
   };
+
+  const toggleShowPassword = () => setShowPassword(prev => !prev);
 
   return (
     <S.SignUpWrapper>
@@ -68,7 +75,6 @@ const SignUp: React.FC = () => {
               resetForm,
             }) => (
               <Form>
-                {isSubmitting}
                 <div className="login-form">
                   <div>
                     <C.CommonInput
@@ -99,12 +105,16 @@ const SignUp: React.FC = () => {
                       <C.CommonInput
                         placeholder="Password"
                         name="password"
-                        type="password"
+                        type={!showPassword ? "password" : 'text'}
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      <TbEyeClosed className="input-icon" size={18} />
+                      {
+                        showPassword ?
+                          <AiOutlineEye onClick={toggleShowPassword} className="input-icon" size={18} /> :
+                          <TbEyeClosed onClick={toggleShowPassword} className="input-icon" size={18} />
+                      }
                     </C.IconInputWrapper>
                     <p className="text-white mt-0.5">
                       {errors.password && touched.password && errors.password}
@@ -146,7 +156,7 @@ const SignUp: React.FC = () => {
                   <div className="text-center">
                     <p className="text-[#767676]">
                       Already have an account ?
-                      <Link className="text-white" to={"/"}>
+                      <Link className="text-white" to={"/login"}>
                         {" "}
                         Login
                       </Link>

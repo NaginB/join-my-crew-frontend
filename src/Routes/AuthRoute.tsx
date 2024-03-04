@@ -6,7 +6,7 @@ interface AuthInterface {
 }
 
 const AuthRoute: React.FC<AuthInterface> = ({ element }) => {
-  if (!!localStorage.getItem("token")) return <div>{element}</div>;
+  if (!!localStorage.getItem("auth-access")) return <>{element}</>;
   return <Navigate to={"/"} />;
 };
 

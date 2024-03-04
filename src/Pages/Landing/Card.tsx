@@ -1,9 +1,9 @@
-import { FamousUsers } from './interface';
+import * as interFace from '../../Config/interface.config';
 import * as C from './style';
 import { FaInstagram } from 'react-icons/fa6';
 
 
-const Card: React.FC<FamousUsers> = ({followers, imageURL, name, id}: FamousUsers) => {
+const Card: React.FC<interFace.FamousUsers> = ({followers, imageURL, name, id}: interFace.FamousUsers) => {
   return (
     <C.Card className={`famous-user-card card-${id}`}>
       <C.CardImg src={imageURL}/>
