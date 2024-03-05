@@ -14,7 +14,7 @@ const Explore: React.FC = () => {
                     <TbSearch className="input-icon" size={18} />
                 </C.IconInputWrapper>
 
-                <h1 className='mt-10 mb-5 text-white font-bold text-3xl'>Explore</h1>
+                <h1 className='mt-10 mb-0 text-white font-bold text-3xl'>Explore</h1>
             </E.Header>
             <E.ProfileWrapper>
                 {Array(10).fill('').map((_, index) => (
