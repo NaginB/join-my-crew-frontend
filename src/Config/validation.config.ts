@@ -29,3 +29,9 @@ export const resetPasswordValidation = Yup.object().shape({
     .required('Confirm password is required')
     .oneOf([Yup.ref('newPassword')], 'Passwords must match'),
 });
+
+export const forgotPasswordValidation = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid email address')
+    .required('Email is required'),
+});

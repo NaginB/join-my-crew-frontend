@@ -76,3 +76,7 @@ export interface ResetPasswordInterface {
   newPassword: string;
   confirmPassword: string;
 }
+
+export interface ForgotPasswordInterface {
+  email: string;
+}

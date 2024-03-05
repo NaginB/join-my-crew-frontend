@@ -16,6 +16,7 @@ import ViewProfile from "../Pages/Profile/ViewProfile";
 import CreatorDetails from "../Pages/CreatorDetails";
 import Thankyou from "../Pages/Thankyou";
 import ResetPassword from "../Pages/ResetPassword";
+import ForgotPassword from "../Pages/ForgotPassword";
 
 interface RoutesInterface {
   element: React.FC;
@@ -98,6 +99,12 @@ const AppRoutes: React.FC = () => {
     {
       element: ResetPassword,
       path: "/password/reset",
+      sidebar: false,
+      private: true,
+    },
+    {
+      element: ForgotPassword,
+      path: "/password/forgot",
       sidebar: false,
       private: true,
     },
