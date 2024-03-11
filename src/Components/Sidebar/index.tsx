@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { TiHome } from "react-icons/ti";
 import * as interFace from "../../Config/interface.config";
@@ -7,12 +7,15 @@ import { PiChatTeardropTextFill } from "react-icons/pi";
 import { FaRegCircleUser } from "react-icons/fa6";
 import AppLogo from "../../Assets/Images/logo.svg";
 import UserImage from "../../Assets/Images/user-profile-img.png";
+import { RxViewGrid } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
+import * as CM from '../../Config/common.config'
+import CreatePostModal from "../../Modals/CreatePostModal";
 
 const Sidebar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-
-  const [items] = useState<interFace.SidebarItems[]>([
+  const [createPostModal, setCreatePostModal] = useState(false);
+  const [items, setItems] = useState<interFace.SidebarItems[]>([
     {
       id: 1,
       icon: <TiHome size={30} />,
@@ -27,12 +30,21 @@ const Sidebar: React.FC = () => {
     },
     {
       id: 3,
-      icon: <PiChatTeardropTextFill size={30} />,
+      icon: <RxViewGrid size={30}/>,
+      title: "Post",
+      link: '',
+      onClick: () => {
+        setCreatePostModal(true);
+      }
+    },
+    {
+      id: 4,
+      icon: <PiChatTeardropTextFill size={30}/>,
       title: "Messages",
       link: '/messages'
     },
     {
-      id: 4,
+      id: 5,
       icon: <FaRegCircleUser size={30} />,
       title: "User",
       link: '',
@@ -45,28 +57,35 @@ const Sidebar: React.FC = () => {
   const [userMenu] = useState<interFace.UserMenu[]>([
     {
       title: 'Contact Support',
+      onClick: () => CM.logout()
     },
     {
       title: 'Edit Profile',
+      onClick: () => CM.logout()
     },
     {
       title: 'Change Password',
+      onClick: () => CM.logout()
     },
     {
       title: 'Payment & Billing',
+      onClick: () => CM.logout()
     },
     {
       title: 'Subscriptions',
+      onClick: () => CM.logout()
     },
     {
       title: 'Sign Out',
+      onClick: () => CM.logout()
     },
   ])
 
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
 
   return (
     <S.SidebardWrapper>
+      <CreatePostModal onHide={() => setCreatePostModal(false)} show={createPostModal} key={'create-post-modal'} />
       <S.Logo src={AppLogo} />
       <S.ProfileImage src={UserImage} />
       <hr />
@@ -74,7 +93,7 @@ const Sidebar: React.FC = () => {
         <S.MenuSheild onClick={() => setIsMenuOpen(false)} className="menu-sheild"></S.MenuSheild>
         <S.UserMenu className="user-menu">
           {userMenu.map((user, i) => (
-            <S.UserMenuItem onClick={() => console.log(user)} key={`user-menu-${i}`}>
+            <S.UserMenuItem onClick={() => user?.onClick()} key={`user-menu-${i}`}>
               <Link to={''} className="font-roboto-condense">{user.title}</Link>
             </S.UserMenuItem>
           ))}

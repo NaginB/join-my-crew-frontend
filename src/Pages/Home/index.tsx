@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as H from "./style";
 import * as C from "../../common-styles";
 import { TbSearch } from "react-icons/tb";
 import Post from "../../Components/Post/Post";
 import Suggesstion from "../../Components/Suggesstion";
 import logoDark from '../../Assets/Images/FanxoDark.svg'
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../Redux/store";
+import { feedHandler } from "../../Redux/slices/postSlice";
 
 const Home: React.FC = () => {
+
+  const dispatch: AppDispatch = useDispatch();
+
+  const { feed } = useSelector((state: RootState) => state.posts);
+  useEffect(() => {
+    dispatch(feedHandler())
+  }, []);
+
   return (
     <H.HomeWrapper>
       <H.Feed>
@@ -18,10 +29,8 @@ const Home: React.FC = () => {
           <H.Logo className="logo-img" src={logoDark} />
         </H.Header>
         <H.FeedWrapper>
-          {Array(10)
-            .fill("")
-            .map((_, index) => (
-              <Post  key={`post-key-${index}`} />
+          {feed.results.map((_, index) => (
+              <Post key={`post-key-${index}`} />
             ))}
         </H.FeedWrapper>
       </H.Feed>

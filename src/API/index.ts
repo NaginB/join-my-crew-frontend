@@ -15,7 +15,7 @@ const APIRequest = async ({ url, method }: APIRequestParams, data: any = null, p
       url: apiurl,
       method,
       headers: {
-        Authorization: token,
+        Authorization: 'Bearer ' + token,
       },
     };
 

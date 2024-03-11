@@ -31,12 +31,12 @@ export interface SignUpInterface {
   role?: string;
 }
 
-export interface LinkInterface{
+export interface LinkInterface {
   title: string,
   url: string
 }
 
-export interface FamousUsers{
+export interface FamousUsers {
   id: number;
   name: string;
   followers: string;
@@ -51,8 +51,9 @@ export interface SidebarItems {
   onClick?: () => void;
 }
 
-export interface UserMenu{
-  title:string;
+export interface UserMenu {
+  title: string;
+  onClick: () => void;
 }
 
 export interface SidebarItems {
@@ -63,11 +64,11 @@ export interface SidebarItems {
   onClick?: () => void;
 }
 
-export interface UserMenu{
-  title:string;
+export interface UserMenu {
+  title: string;
 }
 
-export interface LinkInterface{
+export interface LinkInterface {
   title: string,
   url: string
 }
@@ -79,4 +80,55 @@ export interface ResetPasswordInterface {
 
 export interface ForgotPasswordInterface {
   email: string;
+}
+
+export interface Modal {
+  show: boolean;
+  onHide: () => void;
+}
+
+export interface Post {
+  text: string;
+  creator: string;
+  files: string[];
+  likeCount: string[];
+  comments: string[];
+  tips: string[];
+  isLocked: boolean;
+}
+
+export interface File {
+  name: string;
+  isDeleted: boolean;
+  createdAt: string;
+  updatedAt: string;
+  id: string;
+}
+
+export interface FeedPosts {
+  text: string;
+  creator: any; // Replace 'any' with appropriate type if known
+  files: File[];
+  likeCount: any[]; // Replace 'any' with appropriate type if known
+  comments: any[]; // Replace 'any' with appropriate type if known
+  tips: string[];
+  isLocked: boolean;
+  id: string;
+}
+
+export interface Feed {
+  results: FeedPosts[];
+  page: number;
+  limit: number;
+  totalPages: number;
+  totalResults: number;
+}
+
+
+export interface PostDetails {
+  posts: Post[],
+  loading: boolean;
+  limit: number;
+  page: number;
+  feed: Feed;
 }
