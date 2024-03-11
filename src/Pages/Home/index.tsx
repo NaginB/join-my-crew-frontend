@@ -13,9 +13,10 @@ const Home: React.FC = () => {
 
   const dispatch: AppDispatch = useDispatch();
 
-  const { feed } = useSelector((state: RootState) => state.posts);
+  const { feed, loading } = useSelector((state: RootState) => state.posts);
+
   useEffect(() => {
-    dispatch(feedHandler())
+    dispatch(feedHandler({ limit: 10, page: 1 }))
   }, []);
 
   return (
@@ -29,9 +30,12 @@ const Home: React.FC = () => {
           <H.Logo className="logo-img" src={logoDark} />
         </H.Header>
         <H.FeedWrapper>
-          {feed.results.map((_, index) => (
-              <Post key={`post-key-${index}`} />
-            ))}
+          {
+            loading ? <p className="text-white text-center mt-5">fetching posts...</p> :
+              feed.results.map((_, index) => (
+                <Post key={`post-key-${index}`} />
+              ))
+          }
         </H.FeedWrapper>
       </H.Feed>
       <H.SuggestionWrapper>

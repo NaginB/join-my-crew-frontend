@@ -128,7 +128,5 @@ export interface Feed {
 export interface PostDetails {
   posts: Post[],
   loading: boolean;
-  limit: number;
-  page: number;
   feed: Feed;
 }

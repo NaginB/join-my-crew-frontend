@@ -14,8 +14,6 @@ const initialState: interFace.PostDetails = {
     totalResults: 1
   },
   loading: false,
-  limit: 10,
-  page: 1
 };
 
 
@@ -34,12 +32,13 @@ export const createNewPost = createAsyncThunk<any, interFace.Post>(
   }
 );
 
-export const feedHandler = createAsyncThunk<any>(
+export const feedHandler = createAsyncThunk<any, { limit: number, page: number }>(
   'post/feed',
   async (data, { rejectWithValue, getState }) => {
     try {
+
       toast.loading('Preparing your feed...');
-      const response: any = await APIRequest(APIPATHS.myFeed);
+      const response: any = await APIRequest(APIPATHS.myFeed, {}, { ...data });
       toast.remove()
       return response.data;
     } catch (error: any) {
