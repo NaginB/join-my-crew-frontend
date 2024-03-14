@@ -8,7 +8,7 @@ export const CommonInput = styled.input`
   border: none;
   border-bottom: 1px solid #8f8f8f;
   color: #8f8f8f;
-  opacity: 56%;
+  // opacity: 56%;
   //   font-family: "Roboto", sans-serif;
   font-size: 16px;
 `;

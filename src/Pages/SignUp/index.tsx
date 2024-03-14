@@ -7,28 +7,26 @@ import ColoredLogo from "../../Assets/Images/logo-colored.svg";
 import GoogleIcon from "../../Assets/Images/google-icon.svg";
 import { Formik, Form } from "formik";
 import * as validation from "../../Config/validation.config";
+import * as config from "../../Config/common.config";
 import * as APIPATHS from "../../API/path";
 import APIRequest from "../../API";
 import toast from "react-hot-toast";
 import { AiOutlineEye } from "react-icons/ai";
 import * as interFace from "../../Config/interface.config";
 
-
 const SignUp: React.FC = () => {
   const { role } = useParams<{ role: string }>(); // Specify the type for useParams
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData] = useState<interFace.SignUpInterface>({
-    email: "",
-    fullname: "",
-    password: "",
+    email: "naginuser@gmail.com",
+    fullname: "Nagin User",
+    password: "Nagin@2204",
     role: "",
   });
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const onSignUp = async (
-    values: interFace.SignUpInterface
-  ) => {
+  const onSignUp = async (values: interFace.SignUpInterface) => {
     // Your submission logic goes here
     values.role = role
       ? process.env.REACT_APP_CREATOR_ROLE_ID
@@ -40,7 +38,9 @@ const SignUp: React.FC = () => {
       loading: "Signin you up...",
       success: (data: any) => {
         if (data.error) throw new Error(data.error.message);
-        navigate('/dashboard');
+        const { access, refresh }: interFace.AuthData = data.data.tokens;
+        config.updateToken(access.token, refresh.token);
+        navigate(role ? "/creator-details" : "/home");
         return "Account created successfully.";
       },
       error: (err) => {
@@ -49,7 +49,7 @@ const SignUp: React.FC = () => {
     });
   };
 
-  const toggleShowPassword = () => setShowPassword(prev => !prev);
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
   return (
     <S.SignUpWrapper>
@@ -105,16 +105,24 @@ const SignUp: React.FC = () => {
                       <C.CommonInput
                         placeholder="Password"
                         name="password"
-                        type={!showPassword ? "password" : 'text'}
+                        type={!showPassword ? "password" : "text"}
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      {
-                        showPassword ?
-                          <AiOutlineEye onClick={toggleShowPassword} className="input-icon" size={18} /> :
-                          <TbEyeClosed onClick={toggleShowPassword} className="input-icon" size={18} />
-                      }
+                      {showPassword ? (
+                        <AiOutlineEye
+                          onClick={toggleShowPassword}
+                          className="input-icon"
+                          size={18}
+                        />
+                      ) : (
+                        <TbEyeClosed
+                          onClick={toggleShowPassword}
+                          className="input-icon"
+                          size={18}
+                        />
+                      )}
                     </C.IconInputWrapper>
                     <p className="text-white mt-0.5">
                       {errors.password && touched.password && errors.password}

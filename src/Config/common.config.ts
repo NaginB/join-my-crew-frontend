@@ -1,12 +1,14 @@
-export const getSessionToken: () => string = () => localStorage.getItem('auth-access') ?? '';
-
+export const getSessionToken: () => string = () =>
+  localStorage.getItem("auth-access") ?? "";
 
 export const updateToken = (access: string, refresh: string) => {
-  localStorage.setItem('auth-access', access);
-  localStorage.setItem('refresh-access', refresh);
-}
+  localStorage.setItem("auth-access", access);
+  localStorage.setItem("refresh-access", refresh);
+};
 
 export const logout = () => {
   localStorage.clear();
-  window.location.href = '';
-}
+  window.location.href = "";
+};
+
+// export const

@@ -7,6 +7,7 @@ export interface UserDetails {
   createdAt?: string;
   updatedAt?: string;
   id?: string;
+  loading: boolean;
 }
 
 export interface TokenInfo {
@@ -32,8 +33,8 @@ export interface SignUpInterface {
 }
 
 export interface LinkInterface {
-  title: string,
-  url: string
+  title: string;
+  url: string;
 }
 
 export interface FamousUsers {
@@ -69,8 +70,8 @@ export interface UserMenu {
 }
 
 export interface LinkInterface {
-  title: string,
-  url: string
+  title: string;
+  url: string;
 }
 
 export interface ResetPasswordInterface {
@@ -124,9 +125,16 @@ export interface Feed {
   totalResults: number;
 }
 
-
 export interface PostDetails {
-  posts: Post[],
+  posts: Post[];
   loading: boolean;
   feed: Feed;
+}
+
+export interface CreatorDetails {
+  username: string;
+  instagram: string;
+  youtube: string;
+  threads: string;
+  others: string;
 }

@@ -1,12 +1,31 @@
 const METHODS = {
-  POST: 'POST',
-  GET: 'GET',
-  DELETE: 'DELETE',
-}
+  POST: "POST",
+  GET: "GET",
+  DELETE: "DELETE",
+  PATCH: "PATCH",
+};
 
-export const register = { url: '/auth/register', method: METHODS.POST }
-export const login = { url: '/auth/login', method: METHODS.POST }
-export const resetPassword = { url: '/auth/reset-password', method: METHODS.POST }
-export const forgotPassword = { url: '/auth/forgot-password', method: METHODS.POST }
-export const createPost = { url: '/posts/createFeed', method: METHODS.POST }
-export const myFeed = { url: '/posts/queryPostsWithPagination', method: METHODS.GET }
+export const register = { url: "/auth/register", method: METHODS.POST };
+
+export const login = { url: "/auth/login", method: METHODS.POST };
+
+export const resetPassword = {
+  url: "/auth/reset-password",
+  method: METHODS.POST,
+};
+
+export const forgotPassword = {
+  url: "/auth/forgot-password",
+  method: METHODS.POST,
+};
+
+export const createPost = { url: "/posts/createFeed", method: METHODS.POST };
+
+export const myFeed = {
+  url: "/posts/queryPostsWithPagination",
+  method: METHODS.GET,
+};
+
+export const updateUser = { url: "/users/{{id}}", method: METHODS.PATCH };
+
+export const userDetails = { url: "/users", method: METHODS.GET };
