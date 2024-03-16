@@ -1,3 +1,6 @@
+import type { GetProp, UploadFile, UploadProps } from 'antd';
+type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
+
 export const getSessionToken: () => string = () =>
   localStorage.getItem("auth-access") ?? "";
 
@@ -11,4 +14,10 @@ export const logout = () => {
   window.location.href = "";
 };
 
-// export const
+export const getBase64 = (file: FileType): Promise<string> =>
+new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result as string);
+  reader.onerror = (error) => reject(error);
+});

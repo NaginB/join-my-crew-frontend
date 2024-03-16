@@ -14,7 +14,7 @@ const Home: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const { feed, loading } = useSelector((state: RootState) => state.posts);
-
+ 
   useEffect(() => {
     dispatch(feedHandler({ limit: 10, page: 1 }))
   }, []);
@@ -32,8 +32,8 @@ const Home: React.FC = () => {
         <H.FeedWrapper>
           {
             loading ? <p className="text-white text-center mt-5">fetching posts...</p> :
-              feed.results.map((_, index) => (
-                <Post key={`post-key-${index}`} />
+              feed?.results.map((post, index) => (
+                <Post key={`post-key-${index}`} post={post}/>
               ))
           }
         </H.FeedWrapper>

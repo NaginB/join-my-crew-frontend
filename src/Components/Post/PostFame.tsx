@@ -1,8 +1,13 @@
 import React from 'react';
 import * as P from './style';
 import likedImage from "../../Assets/Images/profileGirl.jpeg";
+import { FeedPosts } from '../../Config/interface.config';
 
-const PostFame: React.FC = () => {
+interface Props{
+  post?: FeedPosts;
+}
+
+const PostFame: React.FC<Props> = () => {
   return (
     <>
       <P.LikesWrapper>

@@ -29,3 +29,5 @@ export const myFeed = {
 export const updateUser = { url: "/users/{{id}}", method: METHODS.PATCH };
 
 export const userDetails = { url: "/users", method: METHODS.GET };
+
+export const fileUpload = { url: "/files/upload", method: METHODS.POST };

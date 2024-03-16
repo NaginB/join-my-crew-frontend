@@ -4,8 +4,13 @@ import CommentIcon from "../../Assets/Icons/Comment";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineCurrencyRupee } from "react-icons/hi2";
 import SaveIcon from "../../Assets/Icons/SaveIcon";
+import { FeedPosts } from '../../Config/interface.config'
 
-const PostFooter: React.FC = () => {
+interface Props{
+  post?: FeedPosts;
+}
+
+const PostFooter: React.FC<Props> = () => {
   return (
     <P.PostFooter>
       <P.ActionWrapper>

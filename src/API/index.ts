@@ -24,6 +24,7 @@ const APIRequest = async ({ url, method }: APIRequestParams, data: any = null, p
 
     return await axios(payload);
   } catch (error: any) {
+    // if(error && error?.response?.status === 401) return config.logout();
     return { error: error?.response?.data ?? { message: 'custom' } };
   }
 };

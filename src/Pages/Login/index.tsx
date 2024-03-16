@@ -29,7 +29,7 @@ const Login: React.FC = () => {
 
   const [formData] = useState<intterFace.LoginInterface>({
     email: "naginbanodha@gmail.com",
-    password: "Nagin@2204",
+    password: "Nagin@1234",
   });
 
   const { role } = useParams<{ role: string }>(); // Specify the type for useParams

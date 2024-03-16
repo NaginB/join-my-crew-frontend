@@ -57,7 +57,7 @@ const CreatorDetails = () => {
     const path: any = { ...Path.updateUser };
     path.url = path.url.replaceAll("{{id}}", user_id);
 
-    const promise = APIRequest(path, { socialLinks: [JSON.stringify(values)] });
+    const promise = APIRequest(path, { socialLinks: values });
 
     toast.promise(promise, {
       loading: "updating details",

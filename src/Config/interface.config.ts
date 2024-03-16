@@ -106,9 +106,20 @@ export interface File {
   id: string;
 }
 
+interface UserData {
+  fullname: string;
+  email: string;
+  role: string;
+  socialLinks: string[];
+  isApproved: boolean;
+  createdAt: string;
+  updatedAt: string;
+  id: string;
+}
+
 export interface FeedPosts {
   text: string;
-  creator: any; // Replace 'any' with appropriate type if known
+  creator: UserData; // Replace 'any' with appropriate type if known
   files: File[];
   likeCount: any[]; // Replace 'any' with appropriate type if known
   comments: any[]; // Replace 'any' with appropriate type if known
@@ -137,4 +148,12 @@ export interface CreatorDetails {
   youtube: string;
   threads: string;
   others: string;
+}
+
+export interface UploadedFile {
+  name: string;
+  isDeleted: boolean;
+  createdAt: string;
+  updatedAt: string;
+  id: string;
 }

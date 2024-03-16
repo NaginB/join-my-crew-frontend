@@ -1,15 +1,52 @@
 import styled from "styled-components";
 
 export const DragAndDrop = styled.div`
-  width: 100%;
-  height: 400px;
-  border: 1px dashed #262626;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-modal .ant-modal-content{
+  background-color: #262626;
+}
+`;
 
-  .button, [type='button'], [type='reset'], [type='submit']{
-    background-color: #1677ff!important;
+export const Header = styled.div`
+  h1{
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  border-bottom: 1px solid #4f4f4f;
+  padding-bottom: 10px;
+  }
+`
+
+export const PostFooter = styled.div`
+  text-align: center;
+  button{
+    background-color: #393939;
+    color: white;
+    padding: 0.3rem 1.5rem;
+    border-radius: 4px;
+    font-size: 14px;
+    &:hover{
+      color: white;
+      background-color: #767676;
+    }
+  }
+`
+
+export const PostForm = styled.div`
+  button{
+    background-color: #393939;
+    color: white;
+    padding: 0.3rem 1.5rem;
+    border-radius: 4px;
+    font-size: 14px;
+    &:hover{
+      color: white;
+      background-color: #767676;
+    }
+  }
+
+  textarea{
+    height: 250px;
+    resize: none;
   }
 `;

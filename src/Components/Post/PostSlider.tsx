@@ -4,13 +4,15 @@ import SliderImg1 from "../../Assets/Images/girlWallpaper.jpg";
 import SliderImg2 from "../../Assets/Images/profileGirl.jpeg";
 import SliderImg3 from "../../Assets/Images/profileGirl2.jpeg";
 import { FiUnlock } from "react-icons/fi";
+import { FeedPosts } from '../../Config/interface.config';
 
 
 interface Props {
   locked?: boolean
+  post?: FeedPosts;
 }
 
-const PostSlider = ({ locked = false }: Props) => {
+const PostSlider = ({ locked = false, post }: Props) => {
   const settings = {
     dots: !locked,
     speed: 500,
@@ -23,18 +25,18 @@ const PostSlider = ({ locked = false }: Props) => {
     customPaging: (i: number) => (<P.Dot className="slider-dot"></P.Dot>)
   };
 
+  console.log(post?.files)
+
   if (!locked)
     return (
       <P.Slider {...settings}>
-        <P.SliderContent >
-          <P.PostImage src={SliderImg1} />
-        </P.SliderContent>
-        <P.SliderContent >
-          <P.PostImage src={SliderImg2} />
-        </P.SliderContent>
-        <P.SliderContent >
-          <P.PostImage src={SliderImg3} />
-        </P.SliderContent>
+        {
+          post?.files.map(file => (
+            <P.SliderContent >
+              <P.PostImage src={SliderImg1} />
+            </P.SliderContent>
+          ))
+        }
       </P.Slider>
     )
 
@@ -42,7 +44,7 @@ const PostSlider = ({ locked = false }: Props) => {
     <P.LockedPostContainer>
       <P.LockedPostImg className='locked-img' src={SliderImg3} />
       <P.UnlockPost>
-        <FiUnlock size={36} color='white'/>
+        <FiUnlock size={36} color='white' />
         <P.UnlockPostBtn className='font-roboto'>Unlock Post</P.UnlockPostBtn>
       </P.UnlockPost>
     </P.LockedPostContainer>

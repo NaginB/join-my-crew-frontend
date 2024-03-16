@@ -54,3 +54,8 @@ code {
 .text-right {
   text-align: right;
 }
+
+button, [type='button']{
+  background-color: #1677ff;
+  color: #ffffff;
+}
