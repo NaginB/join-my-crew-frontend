@@ -13,6 +13,9 @@ import APIRequest from "../../API";
 import toast from "react-hot-toast";
 import { AiOutlineEye } from "react-icons/ai";
 import * as interFace from "../../Config/interface.config";
+import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+
 
 const SignUp: React.FC = () => {
   const { role } = useParams<{ role: string }>(); // Specify the type for useParams
@@ -50,6 +53,22 @@ const SignUp: React.FC = () => {
   };
 
   const toggleShowPassword = () => setShowPassword((prev) => !prev);
+
+  const loginWithGoogle = (credentialResponse: CredentialResponse) => {
+    const token: string = credentialResponse.credential ?? '';
+    if (!token) return toast.error('Invalid signup');
+
+    const { email, family_name, given_name }: interFace.GoogleUserInfo = jwtDecode(token);
+    const payload: interFace.SignUpInterface = {
+      email,
+      fullname: family_name + ' ' + given_name,
+      password: config.generatePassword(12),
+      role
+    }
+
+    onSignUp(payload);
+
+  }
 
   return (
     <S.SignUpWrapper>
@@ -170,8 +189,19 @@ const SignUp: React.FC = () => {
                       </Link>
                     </p>
                   </div>
-                  <div>
-                    <C.CommonIonButton>
+                  <div className="relative">
+                    <GoogleLogin
+                      width={400}
+                      shape="pill"
+                      theme="outline"
+                      onSuccess={loginWithGoogle}
+                      onError={() => {
+                        console.log('Login Failed');
+                      }}
+                      useOneTap
+                    />
+
+                    <C.CommonIonButton type="button" className="!absolute !bg-black top-0 left-0 w-full h-[40px] pointer-events-none">
                       <img alt="fanxo-logo" src={GoogleIcon} />
                       <span>Signup With Google</span>
                     </C.CommonIonButton>

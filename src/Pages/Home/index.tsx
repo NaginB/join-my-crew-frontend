@@ -38,7 +38,7 @@ const Home: React.FC = () => {
           }
         </H.FeedWrapper>
       </H.Feed>
-      <H.SuggestionWrapper>
+      {/* <H.SuggestionWrapper>
         <H.Header className="flex items-center justify-center">
           <p className="text-xl text-white">Suggestions For You</p>
         </H.Header>
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
               <Suggesstion key={`suggestion-key-${index}`} />
             ))}
         </H.SuggestedContentWrapper>
-      </H.SuggestionWrapper>
+      </H.SuggestionWrapper> */}
     </H.HomeWrapper>
   );
 };

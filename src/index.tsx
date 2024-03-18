@@ -6,16 +6,22 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
 import { Toaster } from 'react-hot-toast';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 // import 'antd/dist/antd.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const CLIENT_ID: string = process.env.REACT_APP_CLIENT_ID! || '';
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Toaster/>
-      <App />
+      <Toaster />
+      <GoogleOAuthProvider clientId={CLIENT_ID}>
+        <App />
+      </GoogleOAuthProvider>
     </Provider>
   </React.StrictMode>
 );
