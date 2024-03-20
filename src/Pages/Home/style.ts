@@ -56,23 +56,23 @@ export const Header = styled.div`
   }
 `;
 
-export const FeedWrapper = styled.div`
-  max-height: 100vh;
+export const FeedWrapper = styled.div<{ stretch?: boolean }>`
+  max-height: ${(props) => (props.stretch ? `100vh` : `calc(100vh - 100px)`)};
   overflow: auto;
   padding: 1rem;
 
   @media screen and (max-width: 1200px) {
-    max-height: calc(100vh - 50px);
+    max-height: ${(props) => (props.stretch ? `calc(100vh - 50px)` : `calc(100vh - 150px)`)};
   }
 `;
 
 export const SuggestedContentWrapper = styled.div`
-  max-height: 100vh;
+  max-height: calc(100vh - 100px);
   overflow: auto;
   padding: 1rem;
 
   @media screen and (max-width: 1200px) {
-    max-height: calc(100vh - 50px);
+    max-height: calc(100vh - 120px);
   }
 `;
 

@@ -51,7 +51,7 @@ const Home: React.FC = () => {
           </H.Header>
         )}
 
-        <H.FeedWrapper>
+        <H.FeedWrapper stretch={isCreatorRole(role)}>
           {isCreatorRole(role) && (
             <D.ImageBox className="mb-[8rem]">
               <D.ProfileBackgroundImage src={backgroundImg} />
@@ -72,9 +72,10 @@ const Home: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                    <H.CreatePostBtn 
-                    onClick={() => setCreatePostModal(true)}
-                    className="text-white mt-16 rounded flex gap-3 items-center py-1 px-4">
+                    <H.CreatePostBtn
+                      onClick={() => setCreatePostModal(true)}
+                      className="text-white mt-16 rounded flex gap-3 items-center py-1 px-4"
+                    >
                       <EditIcon />
                       <span className="font-inter">Create</span>
                     </H.CreatePostBtn>

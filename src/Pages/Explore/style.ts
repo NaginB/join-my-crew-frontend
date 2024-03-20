@@ -5,11 +5,10 @@ export const Explore = styled.div`
   max-width: 95%;
   margin: auto;
   padding: 2rem 0;
-  padding-bottom: 0;
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
   height: 100%;
-  
   @media screen and (max-width: 600px) {
     padding-top: 10px;
   }
