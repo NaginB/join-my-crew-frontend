@@ -1,5 +1,5 @@
-import type { GetProp, UploadFile, UploadProps } from 'antd';
-type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
+import type { GetProp, UploadFile, UploadProps } from "antd";
+type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0];
 
 export const getSessionToken: () => string = () =>
   localStorage.getItem("auth-access") ?? "";
@@ -22,7 +22,6 @@ export const getBase64 = (file: FileType): Promise<string> =>
     reader.onerror = (error) => reject(error);
   });
 
-
 export const generatePassword = (length: number) => {
   const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -30,7 +29,8 @@ export const generatePassword = (length: number) => {
   const specialChars = "!@#$%^&*()_+{}[]<>?";
 
   // Initialize the password with at least one lowercase letter, one uppercase letter, and one number
-  let password = lowercaseChars[Math.floor(Math.random() * lowercaseChars.length)];
+  let password =
+    lowercaseChars[Math.floor(Math.random() * lowercaseChars.length)];
   password += uppercaseChars[Math.floor(Math.random() * uppercaseChars.length)];
   password += numbers[Math.floor(Math.random() * numbers.length)];
 
@@ -43,7 +43,14 @@ export const generatePassword = (length: number) => {
   }
 
   // Shuffle the characters in the password
-  password = password.split('').sort(() => Math.random() - 0.5).join('');
+  password = password
+    .split("")
+    .sort(() => Math.random() - 0.5)
+    .join("");
 
   return password;
-}
+};
+
+export const isCreatorRole = (role: string | null | undefined) => {
+  return role === process.env.REACT_APP_CREATOR_ROLE_ID;
+};

@@ -5,6 +5,7 @@ export const Explore = styled.div`
   max-width: 95%;
   margin: auto;
   padding: 2rem 0;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
   height: 100%;

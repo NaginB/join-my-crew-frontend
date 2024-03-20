@@ -1,5 +1,4 @@
 import * as C from "./styled";
-import Logo1 from "../../Assets/Images/FanxoDark.svg";
 import Logo from "../../Assets/Images/logo-colored.svg";
 import { useEffect, useState } from "react";
 import { CommonButton, CommonInput } from "../../common-styles";

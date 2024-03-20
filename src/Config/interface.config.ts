@@ -1,8 +1,16 @@
+export interface CreatorDetails {
+  username: string;
+  instagram: string;
+  youtube: string;
+  threads: string;
+  others: string;
+}
+
 export interface UserDetails {
   fullname?: string;
   email?: string;
   role?: string | null;
-  socialLinks?: string[];
+  socialLinks?: CreatorDetails;
   isApproved?: boolean;
   createdAt?: string;
   updatedAt?: string;
@@ -140,14 +148,6 @@ export interface PostDetails {
   posts: Post[];
   loading: boolean;
   feed: Feed;
-}
-
-export interface CreatorDetails {
-  username: string;
-  instagram: string;
-  youtube: string;
-  threads: string;
-  others: string;
 }
 
 export interface UploadedFile {

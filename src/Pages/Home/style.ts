@@ -14,7 +14,6 @@ export const Feed = styled.div`
   width: 100%;
   min-height: 100vh;
   flex: 6;
-
   @media screen and (max-width: 1200px) {
     min-height: unset;
   }
@@ -58,25 +57,24 @@ export const Header = styled.div`
 `;
 
 export const FeedWrapper = styled.div`
-  max-height: calc(100vh - 100px);
+  max-height: 100vh;
   overflow: auto;
   padding: 1rem;
 
   @media screen and (max-width: 1200px) {
-   max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 50px);
   }
 `;
 
 export const SuggestedContentWrapper = styled.div`
-  max-height: calc(100vh - 100px);
+  max-height: 100vh;
   overflow: auto;
   padding: 1rem;
 
   @media screen and (max-width: 1200px) {
-   max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 50px);
   }
 `;
-
 
 export const Logo = styled.img`
   width: 120px;
@@ -84,4 +82,14 @@ export const Logo = styled.img`
   @media screen and (min-width: 600px) {
     display: none;
   }
-`
+`;
+
+export const CreatePostBtn = styled.button`
+  background: linear-gradient(
+    90deg,
+    #259fd6 0%,
+    #5d6abe 34.91%,
+    #7554b4 62.9%,
+    #7554b4 100%
+  );
+`;

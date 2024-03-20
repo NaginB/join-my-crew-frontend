@@ -16,22 +16,18 @@ import { useDispatch } from "react-redux";
 import * as intterFace from "../../Config/interface.config";
 import * as config from "../../Config/common.config";
 
-
-
 const Login: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-
   const [formData] = useState<intterFace.LoginInterface>({
-    email: "naginbanodha@gmail.com",
-    password: "Nagin@1234",
+    email: "nagincreator@gmail.com",
+    password: "Nagin@2204",
   });
 
   const { role } = useParams<{ role: string }>(); // Specify the type for useParams
-
 
   const onLogin = async (values: intterFace.LoginInterface) => {
     const promise = APIRequest(APIPATHS.login, values);
@@ -43,25 +39,24 @@ const Login: React.FC = () => {
 
         const user: intterFace.UserDetails = data.data.user;
         const { access, refresh }: intterFace.AuthData = data.data.tokens;
-        config.updateToken(access.token, refresh.token)
+        config.updateToken(access.token, refresh.token);
         dispatch(updateUser(user));
-        navigate('/home');
+        navigate("/home");
         return `Welcome back ${user.fullname} !`;
       },
       error: (err) => {
-        return err?.message || '';
+        return err?.message || "";
       },
     });
   };
 
-  const toggleShowPassword = () => setShowPassword(prev => !prev);
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
   useEffect(() => {
-    if (config.getSessionToken()) navigate('/home')
-  }, [navigate])
+    if (config.getSessionToken()) navigate("/home");
+  }, [navigate]);
 
   return (
-
     <S.LoginWrapper>
       <S.LoginContainer>
         <S.ColoredLogo src={ColoredLogo} />
@@ -101,16 +96,24 @@ const Login: React.FC = () => {
                       <C.CommonInput
                         placeholder="Password"
                         name="password"
-                        type={!showPassword ? "password" : 'text'}
+                        type={!showPassword ? "password" : "text"}
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      {
-                        showPassword ?
-                          <AiOutlineEye onClick={toggleShowPassword} className="input-icon" size={18} /> :
-                          <TbEyeClosed onClick={toggleShowPassword} className="input-icon" size={18} />
-                      }
+                      {showPassword ? (
+                        <AiOutlineEye
+                          onClick={toggleShowPassword}
+                          className="input-icon"
+                          size={18}
+                        />
+                      ) : (
+                        <TbEyeClosed
+                          onClick={toggleShowPassword}
+                          className="input-icon"
+                          size={18}
+                        />
+                      )}
                     </C.IconInputWrapper>
                     <p className="text-white mt-0.5">
                       {errors.password && touched.password && errors.password}

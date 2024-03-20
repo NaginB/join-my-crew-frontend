@@ -28,7 +28,7 @@ const APIRequest = async ({ url, method }: APIRequestParams, data: any = null, p
     if (error && error?.response?.status === 401 && url !== login.url)
       return config.logout();
 
-    return { error: error?.response?.data ?? { message: 'custom' } };
+    return { error: error?.response?.data ?? { message: 'Server is unreachable' } };
   }
 };
 

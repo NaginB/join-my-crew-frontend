@@ -21,8 +21,8 @@ const SignUp: React.FC = () => {
   const { role } = useParams<{ role: string }>(); // Specify the type for useParams
   const navigate = useNavigate();
   const [formData] = useState<interFace.SignUpInterface>({
-    email: "naginuser@gmail.com",
-    fullname: "Nagin User",
+    email: "nagincreator@gmail.com",
+    fullname: "Nagin Creator",
     password: "Nagin@2204",
     role: "",
   });
