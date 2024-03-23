@@ -3,7 +3,6 @@ import * as P from "./style";
 import CommentIcon from "../../Assets/Icons/Comment";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineCurrencyRupee } from "react-icons/hi2";
-import SaveIcon from "../../Assets/Icons/SaveIcon";
 import { FeedPosts } from '../../Config/interface.config'
 
 interface Props{
@@ -18,9 +17,6 @@ const PostFooter: React.FC<Props> = () => {
         <CommentIcon />
         <HiOutlineCurrencyRupee strokeWidth={1} className="text-white" size={34} />
       </P.ActionWrapper>
-      <div className="cursor-pointer">
-        <SaveIcon />
-      </div>
     </P.PostFooter>
   )
 }

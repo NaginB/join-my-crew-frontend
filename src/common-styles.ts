@@ -48,6 +48,7 @@ export const CommonIonButton = styled.button`
   justify-content: center;
   font-weight: 400;
   gap: 1rem;
+  padding: 5px 0;
 `;
 
 export const IconInputWrapper = styled.div`

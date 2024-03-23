@@ -33,6 +33,10 @@ export interface LoginInterface {
   password: string;
 }
 
+export interface LoginWithGoogleInterface {
+  token: string;
+}
+
 export interface SignUpInterface {
   fullname: string;
   email: string;

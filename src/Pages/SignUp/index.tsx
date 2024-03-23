@@ -179,16 +179,6 @@ const SignUp: React.FC = () => {
                   <div className="or-title">
                     <span>Or</span>
                   </div>
-
-                  <div className="text-center">
-                    <p className="text-[#767676]">
-                      Already have an account ?
-                      <Link className="text-white" to={"/login"}>
-                        {" "}
-                        Login
-                      </Link>
-                    </p>
-                  </div>
                   <div className="relative">
                     <GoogleLogin
                       width={400}
@@ -205,6 +195,15 @@ const SignUp: React.FC = () => {
                       <img alt="fanxo-logo" src={GoogleIcon} />
                       <span>Signup With Google</span>
                     </C.CommonIonButton>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-[#767676]">
+                      Already have an account ?
+                      <Link className="text-white" to={"/login"}>
+                        {" "}
+                        Login
+                      </Link>
+                    </p>
                   </div>
                 </div>
               </Form>
