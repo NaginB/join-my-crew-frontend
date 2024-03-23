@@ -61,7 +61,7 @@ const SignUp: React.FC = () => {
     const { email, family_name, given_name }: interFace.GoogleUserInfo = jwtDecode(token);
     const payload: interFace.SignUpInterface = {
       email,
-      fullname: family_name + ' ' + given_name,
+      fullname: given_name + ' ' + family_name,
       password: config.generatePassword(12),
       role
     }

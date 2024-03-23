@@ -58,8 +58,14 @@ const CreatePostModal: React.FC<Props> = ({ onHide, show }) => {
 
   const handleCancel = () => setPreviewOpen(false);
 
+  const resetFormHandler = () => {
+    setFileList([])
+    setFiles([])
+    setStep(1);
+  }
+
   // Handle form submission
-  const handleSubmit = (values: NewPostFormData, { setSubmitting }: any) => {
+  const handleSubmit = (values: NewPostFormData, { setSubmitting, resetForm }: any) => {
     if (!user_id || typeof user_id !== 'string') {
       toast.error('Invalid user.')
       return;
@@ -71,8 +77,7 @@ const CreatePostModal: React.FC<Props> = ({ onHide, show }) => {
       files,
       "likeCount": [],
       "comments": [],
-      "tips": [],
-      "isLocked": true
+      "tips": []
     };
 
     setSubmitting(false);
@@ -97,6 +102,11 @@ const CreatePostModal: React.FC<Props> = ({ onHide, show }) => {
     dispatch(getUserDetails())
   }, [])
 
+  useEffect(() => {
+    if (show) return;
+    resetFormHandler();
+  }, [show])
+
   return (
     <M.DragAndDrop>
       <Modal
@@ -104,9 +114,9 @@ const CreatePostModal: React.FC<Props> = ({ onHide, show }) => {
         className='create-post-modal'
         closeIcon={false}
         style={{ background: '#262626' }}
-        width={710} 
-        open={show} 
-        onCancel={onHide} 
+        width={710}
+        open={show}
+        onCancel={onHide}
         destroyOnClose>
         <M.Header>
           <h1>Create New Post</h1>

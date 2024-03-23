@@ -28,6 +28,11 @@ export const myFeed = {
   method: METHODS.GET,
 };
 
+export const exploreList = {
+  url: `/users/queryUsersWithPagination?role=${process.env.REACT_APP_CREATOR_ROLE_ID}`,
+  method: METHODS.GET,
+};
+
 export const updateUser = { url: "/users/{{id}}", method: METHODS.PATCH };
 
 export const userDetails = { url: "/users", method: METHODS.GET };

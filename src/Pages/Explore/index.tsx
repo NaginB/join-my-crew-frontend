@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as E from './style'
 import * as C from '../../common-styles'
 import { TbSearch } from 'react-icons/tb'
 import ProfileCard from '../../Components/ProfileCard/ProfileCard'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../Redux/store'
+import { fetchExploreList } from '../../Redux/slices/exploreSlice'
 
 
 const Explore: React.FC = () => {
+    const dispatch: AppDispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchExploreList())
+    }, [])
     return (
         <E.Explore>
             <E.Header>

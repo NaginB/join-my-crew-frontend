@@ -22,14 +22,12 @@ const PostSlider = ({ locked = false, post }: Props) => {
     customPaging: (i: number) => <P.Dot className="slider-dot"></P.Dot>,
   };
 
-  console.log(post)
-
   if (!locked)
     return (
       <P.Slider {...settings}>
-        {post?.files.map((file) => (
-          <P.SliderContent>
-            <P.PostImage src={SliderImg1} />
+        {post?.files?.map((file, index) => (
+          <P.SliderContent key={`file-${file.id}`}>
+            <P.PostImage src={file.fileURL} />
           </P.SliderContent>
         ))}
       </P.Slider>

@@ -10,10 +10,16 @@ import UserImage from "../../Assets/Images/user-profile-img.png";
 import { RxViewGrid } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
 import * as CM from "../../Config/common.config";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../Redux/store";
+import { getUserDetails } from "../../Redux/slices/userSlice";
 
 const Sidebar: React.FC = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const {role} = useSelector((state: RootState) => state.user)
+
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [items] = useState<interFace.SidebarItems[]>([
+  const [items, setItems] = useState<interFace.SidebarItems[]>([
     {
       id: 1,
       icon: <TiHome size={30} />,
@@ -26,15 +32,6 @@ const Sidebar: React.FC = () => {
       title: "Explore",
       link: "/explore",
     },
-    // {
-    //   id: 3,
-    //   icon: <RxViewGrid size={30} />,
-    //   title: "Post",
-    //   link: "",
-    //   onClick: () => {
-    //     setCreatePostModal(true);
-    //   },
-    // },
     {
       id: 4,
       icon: <PiChatTeardropTextFill size={30} />,
@@ -80,6 +77,17 @@ const Sidebar: React.FC = () => {
   ]);
 
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    if(CM.isCreatorRole(role)){
+      const non_creators_ids = [2]
+      setItems([...items.filter(({id}) => !non_creators_ids.includes(id))])
+    }
+  }, [role])
+
+  useEffect(() => {
+    dispatch(getUserDetails())
+  }, [])
 
   return (
     <S.SidebardWrapper>

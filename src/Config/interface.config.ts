@@ -107,7 +107,7 @@ export interface Post {
   likeCount: string[];
   comments: string[];
   tips: string[];
-  isLocked: boolean;
+  // isLocked: boolean;
 }
 
 export interface File {
@@ -116,6 +116,7 @@ export interface File {
   createdAt: string;
   updatedAt: string;
   id: string;
+  fileURL: string;
 }
 
 interface UserData {
@@ -179,4 +180,14 @@ export interface GoogleUserInfo {
   iat: number;
   exp: number;
   jti: string;
+}
+
+
+export interface ExploreInterface {
+  results: any[];
+  page: number;
+  limit: number;
+  totalPages: number;
+  totalResults: number;
+  loading: boolean;
 }

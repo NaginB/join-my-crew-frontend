@@ -24,12 +24,13 @@ export const createNewPost = createAsyncThunk<any, interFace.Post>(
       toast.loading('Creating new post...');
       const response: any = await APIRequest(APIPATHS.createPost, postData);
       toast.remove()
-      toast.success('Post created successfully', {duration: 3000})
+      if (response.error) throw new Error(response.error.message)
+      toast.success('Post created successfully', { duration: 3000 })
       return response.data;
     } catch (error: any) {
-      return rejectWithValue(error.message ?? error.response.data);
+      return rejectWithValue({ reason: error.message ?? error.response.data });
     }
-  }
+  } 
 );
 
 export const feedHandler = createAsyncThunk<any, { limit: number, page: number }>(
@@ -61,8 +62,9 @@ const postSlice = createSlice({
         state.feed.results.unshift(action.payload);
         state.loading = false;
       })
-      .addCase(createNewPost.rejected, (state, action) => {
+      .addCase(createNewPost.rejected, (state, action: any) => {
         state.loading = false;
+        toast.error(action.payload.reason)
       });
 
     builder
