@@ -44,11 +44,11 @@ const CreatorDetails = () => {
 
   // Define initial form values
   const initialValues: I.CreatorDetails = {
-    username: "magnifiqqq",
-    instagram: "instagram.magnifiqqq",
-    youtube: "youtube.magnifiqqq",
-    threads: "threads.magnifiqqq",
-    others: "others.magnifiqqq",
+    username: "js7744",
+    instagram: "instagram.js7744",
+    youtube: "youtube.js7744",
+    threads: "threads.js7744",
+    others: "others.js7744",
   };
 
   // Handle form submission

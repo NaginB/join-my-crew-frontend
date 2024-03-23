@@ -51,7 +51,9 @@ const Login: React.FC = () => {
     });
   };
 
-  const onLoginWithGoogle = async (values: intterFace.LoginWithGoogleInterface) => {
+  const onLoginWithGoogle = async (
+    values: intterFace.LoginWithGoogleInterface
+  ) => {
     const promise = APIRequest(APIPATHS.authGooglelogin, values);
     // creating new user
     toast.promise(promise, {
@@ -155,6 +157,11 @@ const Login: React.FC = () => {
                   <C.CommonButton type="submit" disabled={isSubmitting}>
                     Continue
                   </C.CommonButton>
+                  <div className="text-center">
+                    <Link className="text-white" to={"/password/forgot"}>
+                      Forgot password?
+                    </Link>
+                  </div>
                   <div className="or-title">
                     <span>Or</span>
                   </div>

@@ -12,7 +12,7 @@ export const login = { url: "/auth/login", method: METHODS.POST };
 export const authGooglelogin = { url: "/auth/google-auth", method: METHODS.POST };
 
 export const resetPassword = {
-  url: "/auth/reset-password",
+  url: "/auth/reset-password/{{token}}",
   method: METHODS.POST,
 };
 

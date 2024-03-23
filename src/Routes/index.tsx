@@ -98,15 +98,15 @@ const AppRoutes: React.FC = () => {
     },
     {
       element: ResetPassword,
-      path: "/password/reset",
+      path: "/password/reset/:token",
       sidebar: false,
-      private: true,
+      private: false,
     },
     {
       element: ForgotPassword,
       path: "/password/forgot",
       sidebar: false,
-      private: true,
+      private: false,
     },
     {
       element: NotFound,

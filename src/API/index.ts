@@ -8,7 +8,7 @@ interface APIRequestParams {
 }
 
 const APIRequest = async ({ url, method }: APIRequestParams, data: any = null, params: any = null) => {
-  const apiurl = `http://${process.env.REACT_APP_API_ENDPOINT}${url}`;
+  const apiurl = `${process.env.REACT_APP_API_ENDPOINT}${url}`;
   try {
     let token: string = config.getSessionToken();
 

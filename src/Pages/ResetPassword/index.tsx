@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import * as C from "../../common-styles";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
 import { TbEyeClosed } from "react-icons/tb";
 import ColoredLogo from "../../Assets/Images/logo-colored.svg";
-import * as interFace from '../../Config/interface.config'
+import * as interFace from "../../Config/interface.config";
 import { Formik, Form } from "formik";
 import * as validation from "../../Config/validation.config";
 import * as APIPATHS from "../../API/path";
@@ -13,6 +13,7 @@ import APIRequest from "../../API";
 import toast from "react-hot-toast";
 
 const ResetPassword: React.FC = () => {
+  const { token } = useParams<{ token: string }>();
   const navigate = useNavigate();
   const [formData] = useState<interFace.ResetPasswordInterface>({
     newPassword: "",
@@ -21,17 +22,20 @@ const ResetPassword: React.FC = () => {
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const onResetPassword = async (
-    values: interFace.ResetPasswordInterface
-  ) => {
+  const onResetPassword = async (values: interFace.ResetPasswordInterface) => {
+    const path: any = APIPATHS.resetPassword;
+    path.url = path.url.replaceAll("{{token}}", token);
+    const payload = {
+      password: values.newPassword,
+    };
     // Your reset password logic goes here
-    const promise = APIRequest(APIPATHS.resetPassword, values);
+    const promise = APIRequest(path, payload);
 
     toast.promise(promise, {
       loading: "Resetting your password...",
       success: (data: any) => {
         if (data.error) throw new Error(data.error.message);
-        navigate('/login');
+        navigate("/login");
         return "Password reset successfully.";
       },
       error: (err) => {
@@ -40,16 +44,14 @@ const ResetPassword: React.FC = () => {
     });
   };
 
-  const toggleShowPassword = () => setShowPassword(prev => !prev);
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
   return (
     <S.ResetPasswordWrapper>
       <S.ResetPasswordContainer>
         <S.ColoredLogo src={ColoredLogo} />
         <S.ResetPasswordContent>
-          <h1 className="font-roboto font-reg capitalize">
-            Reset Password
-          </h1>
+          <h1 className="font-roboto font-reg capitalize">Reset Password</h1>
 
           <Formik
             initialValues={formData}
@@ -72,19 +74,29 @@ const ResetPassword: React.FC = () => {
                       <C.CommonInput
                         placeholder="New Password"
                         name="newPassword"
-                        type={!showPassword ? "password" : 'text'}
+                        type={!showPassword ? "password" : "text"}
                         value={values.newPassword}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      {
-                        showPassword ?
-                          <AiOutlineEye onClick={toggleShowPassword} className="input-icon" size={18} /> :
-                          <TbEyeClosed onClick={toggleShowPassword} className="input-icon" size={18} />
-                      }
+                      {showPassword ? (
+                        <AiOutlineEye
+                          onClick={toggleShowPassword}
+                          className="input-icon"
+                          size={18}
+                        />
+                      ) : (
+                        <TbEyeClosed
+                          onClick={toggleShowPassword}
+                          className="input-icon"
+                          size={18}
+                        />
+                      )}
                     </C.IconInputWrapper>
                     <p className="text-white mt-0.5">
-                      {errors.newPassword && touched.newPassword && errors.newPassword}
+                      {errors.newPassword &&
+                        touched.newPassword &&
+                        errors.newPassword}
                     </p>
                   </div>
                   <div>
@@ -92,19 +104,29 @@ const ResetPassword: React.FC = () => {
                       <C.CommonInput
                         placeholder="Confirm Password"
                         name="confirmPassword"
-                        type={!showPassword ? "password" : 'text'}
+                        type={!showPassword ? "password" : "text"}
                         value={values.confirmPassword}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      {
-                        showPassword ?
-                          <AiOutlineEye onClick={toggleShowPassword} className="input-icon" size={18} /> :
-                          <TbEyeClosed onClick={toggleShowPassword} className="input-icon" size={18} />
-                      }
+                      {showPassword ? (
+                        <AiOutlineEye
+                          onClick={toggleShowPassword}
+                          className="input-icon"
+                          size={18}
+                        />
+                      ) : (
+                        <TbEyeClosed
+                          onClick={toggleShowPassword}
+                          className="input-icon"
+                          size={18}
+                        />
+                      )}
                     </C.IconInputWrapper>
                     <p className="text-white mt-0.5">
-                      {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}
+                      {errors.confirmPassword &&
+                        touched.confirmPassword &&
+                        errors.confirmPassword}
                     </p>
                   </div>
 
@@ -113,7 +135,9 @@ const ResetPassword: React.FC = () => {
                   </C.CommonButton>
 
                   <div className="text-center">
-                    <Link className="text-white" to={"/home"}>Return</Link>
+                    <Link className="text-white" to={"/home"}>
+                      Return
+                    </Link>
                   </div>
                 </div>
               </Form>

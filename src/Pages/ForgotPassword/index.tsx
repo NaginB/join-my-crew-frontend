@@ -4,7 +4,7 @@ import * as C from "../../common-styles";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
 import ColoredLogo from "../../Assets/Images/logo-colored.svg";
-import * as interFace from '../../Config/interface.config'
+import * as interFace from "../../Config/interface.config";
 import { Formik, Form } from "formik";
 import * as validation from "../../Config/validation.config";
 import * as APIPATHS from "../../API/path";
@@ -30,7 +30,7 @@ const ForgotPassword: React.FC = () => {
       loading: "Sending reset link...",
       success: (data: any) => {
         if (data.error) throw new Error(data.error.message);
-        navigate('/login');
+        navigate("/login");
         return "Reset link sent successfully.";
       },
       error: (err) => {
@@ -39,16 +39,14 @@ const ForgotPassword: React.FC = () => {
     });
   };
 
-  const toggleShowPassword = () => setShowPassword(prev => !prev);
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
   return (
     <S.ForgotPasswordWrapper>
       <S.ForgotPasswordContainer>
         <S.ColoredLogo src={ColoredLogo} />
         <S.ForgotPasswordContent>
-          <h1 className="font-roboto font-reg capitalize">
-            Forgot Password
-          </h1>
+          <h1 className="font-roboto font-reg capitalize">Forgot Password</h1>
 
           <Formik
             initialValues={formData}
@@ -71,16 +69,10 @@ const ForgotPassword: React.FC = () => {
                       <C.CommonInput
                         placeholder="Email"
                         name="email"
-                        type={!showPassword ? "password" : 'text'}
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      {
-                        showPassword ?
-                          <AiOutlineEye onClick={toggleShowPassword} className="input-icon" size={18} /> :
-                          <TbEyeClosed onClick={toggleShowPassword} className="input-icon" size={18} />
-                      }
                     </C.IconInputWrapper>
                     <p className="text-white mt-1">
                       {errors.email && touched.email && errors.email}
